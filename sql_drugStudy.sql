@@ -1,4 +1,19 @@
 
+/*
+
+*****************************************************************************
+*																			*
+*			Titre :			sql_drugStudy.sql								*
+*			Auteur:			Iain Frost										*
+*			Date:			06 mars 2018									*
+*			Description:	Contient les instructions pour construire 		*
+*							la base de donnée pour le projet d'étude des	*
+*							médicaments.									*
+*																			*
+*****************************************************************************
+
+*/
+
 CREATE DATABASE medicamentEtudeDB;
 
 CREATE TABLE patient (
@@ -48,7 +63,7 @@ CREATE TABLE etude(
 	date_fin DATE,
 	id_type_etude INT,
 	PRIMARY KEY(id_etude),
-	FOREIGN KEY(id_type_etude)REFERENCES type_etude(id_type_etu)
+	FOREIGN KEY(id_type_etude)REFERENCES type_etude(id_type_etu)ON DELETE CASCADE
 );
 
 CREATE TABLE medicament(
@@ -66,8 +81,8 @@ CREATE TABLE prescription(
 	id_medicament INT,
 	id_professionel INT,
 	PRIMARY KEY(no_prescription),
-	FOREIGN KEY(id_medicament)REFERENCES medicament(id_medicament),
-	FOREIGN KEY(id_professionel)REFERENCES professionnel(no_professionnel)
+	FOREIGN KEY(id_medicament)REFERENCES medicament(id_medicament)ON DELETE CASCADE,
+	FOREIGN KEY(id_professionel)REFERENCES professionnel(no_professionnel)ON DELETE CASCADE
 );
 
 CREATE TABLE prise_medicament(
@@ -77,8 +92,8 @@ CREATE TABLE prise_medicament(
 	id_patient INT,
 	id_prescription INT,
 	PRIMARY KEY(id_prise_medicament),
-	FOREIGN KEY(id_patient) REFERENCES patient(id_patient),
-	FOREIGN KEY(id_prescription)REFERENCES prescription(no_prescription)
+	FOREIGN KEY(id_patient) REFERENCES patient(id_patient)ON DELETE CASCADE,
+	FOREIGN KEY(id_prescription)REFERENCES prescription(no_prescription)ON DELETE CASCADE
 );
 
 CREATE TABLE TA_liste_patient(
@@ -86,8 +101,8 @@ CREATE TABLE TA_liste_patient(
 	id_etude INT,
 	id_patient INT,
 	PRIMARY KEY(id_liste_patient),
-	FOREIGN KEY(id_etude) REFERENCES etude(id_etude),
-	FOREIGN KEY(id_patient) REFERENCES patient(id_patient)
+	FOREIGN KEY(id_etude) REFERENCES etude(id_etude)ON DELETE CASCADE,
+	FOREIGN KEY(id_patient) REFERENCES patient(id_patient)ON DELETE CASCADE
 );
 
 CREATE TABLE TA_etude_professionel(
@@ -95,6 +110,6 @@ CREATE TABLE TA_etude_professionel(
 	id_etude INT,
 	id_prof INT,
 	PRIMARY KEY(id_ta_etu_prof),
-	FOREIGN KEY(id_etude)  REFERENCES etude(id_etude),
-	FOREIGN KEY(id_prof) REFERENCES professionnel(no_professionnel)
+	FOREIGN KEY(id_etude)  REFERENCES etude(id_etude)ON DELETE CASCADE,
+	FOREIGN KEY(id_prof) REFERENCES professionnel(no_professionnel)ON DELETE CASCADE
 );
