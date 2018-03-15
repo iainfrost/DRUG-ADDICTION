@@ -23,10 +23,15 @@ public class FormulaireController implements Initializable {
 
     @FXML
     private Button btnAjouter;
+    @FXML
     private Button btnModifier;
+    @FXML
     private Button btnSupprimer;
+    @FXML
     private Button btnMenuPrincipal;
+    @FXML
     private Button btnRechercher;
+    @FXML
     private ChoiceBox cbEtude;
   
     @Override
