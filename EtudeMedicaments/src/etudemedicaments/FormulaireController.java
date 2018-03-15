@@ -29,16 +29,11 @@ public class FormulaireController implements Initializable {
     private Button btnRechercher;
     private ChoiceBox cbEtude;
     
-    @FXML
-    private void handleButtonAction(ActionEvent event) {
+   
+
+        
+        
     
-        btnAjouter.setOnAction((event) -> {
-    // Button was clicked, do something...
-    System.out.println("You licked me!");
-});
-        
-        
-    }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
    
