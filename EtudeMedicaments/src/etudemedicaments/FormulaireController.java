@@ -7,7 +7,12 @@ package etudemedicaments;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
 
 /**
  * FXML Controller class
@@ -16,12 +21,27 @@ import javafx.fxml.Initializable;
  */
 public class FormulaireController implements Initializable {
 
-    /**
-     * Initializes the controller class.
-     */
+    @FXML
+    private Button btnAjouter;
+    private Button btnModifier;
+    private Button btnSupprimer;
+    private Button btnMenuPrincipal;
+    private Button btnRechercher;
+    private ChoiceBox cbEtude;
+    
+    @FXML
+    private void handleButtonAction(ActionEvent event) {
+    
+        btnAjouter.setOnAction((event) -> {
+    // Button was clicked, do something...
+    System.out.println("You licked me!");
+});
+        
+        
+    }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+   
     }    
     
 }
