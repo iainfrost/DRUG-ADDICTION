@@ -11,8 +11,7 @@
 
 <VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="etudemedicaments.FormulaireController">
    <children>
-      <TitledPane animated="false" prefHeight="402.0" prefWidth="640.0" text="Drug Study">
-        <content>
+     
           <AnchorPane prefHeight="374.0" prefWidth="553.0">
                <children>
                   <Label layoutX="65.0" layoutY="10.0" text="Numero d'Assurance Maladie : " />
@@ -35,16 +34,15 @@
                   <Separator layoutX="65.0" layoutY="243.0" prefHeight="0.0" prefWidth="482.0" />
                   <Label layoutX="69.0" layoutY="258.0" text="Étude : " />
                   <Separator layoutX="65.0" layoutY="293.0" prefHeight="0.0" prefWidth="481.0" />
-                  <Button id="btnMenuPrincipal" layoutX="265.0" layoutY="315.0" mnemonicParsing="false" onMouseClicked="" text="Menu Principal" />
-                  <Button id="btnAjouter" layoutX="496.0" layoutY="315.0" mnemonicParsing="false" onMouseClicked="" text="Ajouter" />
+                  <Button id="btnMenuPrincipal" layoutX="265.0" layoutY="315.0" mnemonicParsing="false" text="Menu Principal" />
+                  <Button id="btnAjouter" layoutX="496.0" layoutY="315.0" mnemonicParsing="false" text="Ajouter" />
                   <TextField id="txtContact" layoutX="116.0" layoutY="195.0" />
                   <TextField id="txtContactTelephone" layoutX="404.0" layoutY="195.0" />
                   <ChoiceBox id="cbEtude" layoutX="116.0" layoutY="254.0" prefWidth="150.0" />
-                  <Button id="btnRechercher" layoutX="475.0" layoutY="6.0" mnemonicParsing="false" onMouseClicked="" text="Rechercher" visible="false" />
-                  <Button id="btnModifier" layoutX="493.0" layoutY="315.0" mnemonicParsing="false" onMouseClicked="" text="Modifier" visible="false" />
-                  <Button id="btnSupprimer" layoutX="488.0" layoutY="315.0" mnemonicParsing="false" onMouseClicked="" text="Supprimer" visible="false" />
+                  <Button id="btnRechercher" layoutX="475.0" layoutY="6.0" mnemonicParsing="false" text="Rechercher" visible="false" />
+                  <Button id="btnModifier" layoutX="493.0" layoutY="315.0" mnemonicParsing="false" text="Modifier" visible="false" />
+                  <Button id="btnSupprimer" layoutX="488.0" layoutY="315.0" mnemonicParsing="false" text="Supprimer" visible="false" />
                </children></AnchorPane>
-        </content>
-      </TitledPane>
+        
    </children>
 </VBox>
