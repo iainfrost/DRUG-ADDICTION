@@ -28,12 +28,7 @@ public class FormulaireController implements Initializable {
     private Button btnMenuPrincipal;
     private Button btnRechercher;
     private ChoiceBox cbEtude;
-    
-   
-
-        
-        
-    
+  
     @Override
     public void initialize(URL url, ResourceBundle rb) {
    
