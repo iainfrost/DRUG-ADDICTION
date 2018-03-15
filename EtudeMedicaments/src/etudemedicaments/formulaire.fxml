@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="etudemedicaments.FormulaireController">
+   <children>
+      <TitledPane animated="false" prefHeight="402.0" prefWidth="640.0" text="Drug Study">
+        <content>
+          <AnchorPane prefHeight="374.0" prefWidth="553.0">
+               <children>
+                  <Label layoutX="65.0" layoutY="10.0" text="Numero d'Assurance Maladie : " />
+                  <TextField id="txtNAM" layoutX="233.0" layoutY="6.0" />
+                  <Label layoutX="65.0" layoutY="46.0" text="Nom : " />
+                  <Label layoutX="341.0" layoutY="46.0" text="Prénom : " />
+                  <Label layoutX="65.0" layoutY="82.0" text="Adresse : " />
+                  <TextField id="txtNom" layoutX="116.0" layoutY="42.0" />
+                  <TextField id="txtPrenom" layoutX="402.0" layoutY="42.0" prefHeight="25.0" prefWidth="146.0" />
+                  <TextField id="txtAdresse" layoutX="116.0" layoutY="78.0" prefHeight="25.0" prefWidth="432.0" />
+                  <Label layoutX="69.0" layoutY="135.0" text="Téléphone" />
+                  <Label layoutX="69.0" layoutY="159.0" text="Maison : " />
+                  <Label layoutX="343.0" layoutY="159.0" text="Mobile : " />
+                  <Separator layoutX="65.0" layoutY="118.0" prefHeight="1.0" prefWidth="483.0" />
+                  <Separator layoutX="65.0" layoutY="186.0" prefHeight="0.0" prefWidth="480.0" />
+                  <TextField id="txtTelMaison" layoutX="116.0" layoutY="155.0" />
+                  <TextField id="txtTelMobile" layoutX="405.0" layoutY="155.0" prefHeight="25.0" prefWidth="147.0" />
+                  <Label layoutX="69.0" layoutY="199.0" text="Contact : " />
+                  <Label layoutX="339.0" layoutY="199.0" text="Téléphone : " />
+                  <Separator layoutX="65.0" layoutY="243.0" prefHeight="0.0" prefWidth="482.0" />
+                  <Label layoutX="69.0" layoutY="258.0" text="Étude : " />
+                  <Separator layoutX="65.0" layoutY="293.0" prefHeight="0.0" prefWidth="481.0" />
+                  <Button id="btnMenuPrincipal" layoutX="265.0" layoutY="315.0" mnemonicParsing="false" text="Menu Principal" />
+                  <Button id="btnAjouter" layoutX="496.0" layoutY="315.0" mnemonicParsing="false" text="Ajouter" />
+                  <TextField id="txtContact" layoutX="116.0" layoutY="195.0" />
+                  <TextField id="txtContactTelephone" layoutX="404.0" layoutY="195.0" />
+                  <ChoiceBox id="cbEtude" layoutX="116.0" layoutY="254.0" prefWidth="150.0" />
+                  <Button id="btnRechercher" layoutX="475.0" layoutY="6.0" mnemonicParsing="false" text="Rechercher" visible="false" />
+                  <Button id="btnModifier" layoutX="493.0" layoutY="315.0" mnemonicParsing="false" text="Modifier" visible="false" />
+                  <Button id="btnSupprimer" layoutX="488.0" layoutY="315.0" mnemonicParsing="false" text="Supprimer" visible="false" />
+               </children></AnchorPane>
+        </content>
+      </TitledPane>
+   </children>
+</VBox>
