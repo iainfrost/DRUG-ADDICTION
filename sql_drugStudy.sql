@@ -1,6 +1,4 @@
-
 /*
-
 *****************************************************************************
 *																			*
 *			Titre :			sql_drugStudy.sql								*
@@ -11,7 +9,6 @@
 *							médicaments.									*
 *																			*
 *****************************************************************************
-
 */
 
 CREATE DATABASE medicamentEtudeDB;
@@ -52,7 +49,6 @@ CREATE TABLE type_etude(
 	description_type TEXT,
 	commentaire_type TEXT,
 	PRIMARY KEY(id_type_etu)
-
 );
 
 CREATE TABLE etude(
@@ -79,16 +75,15 @@ CREATE TABLE prescription(
 	posologie TEXT,
 	commentaire TEXT,
 	id_medicament INT,
-	id_professionel INT,
+	id_etude INT,
 	PRIMARY KEY(no_prescription),
 	FOREIGN KEY(id_medicament)REFERENCES medicament(id_medicament)ON DELETE CASCADE,
-	FOREIGN KEY(id_professionel)REFERENCES professionnel(no_professionnel)ON DELETE CASCADE
+	FOREIGN KEY(id_etude) REFERENCES etude(id_etude)ON DELETE CASCADE
 );
 
 CREATE TABLE prise_medicament(
 	id_prise_medicament INT NOT NULL UNIQUE AUTO_INCREMENT,
-	date_prise_medicament DATE,
-	heure_prise_medicament TIMESTAMP,
+	date_prise_medicament TIMESTAMP,
 	id_patient INT,
 	id_prescription INT,
 	PRIMARY KEY(id_prise_medicament),
