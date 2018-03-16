@@ -53,7 +53,7 @@ public class EtudeMedicaments extends Application {
         //p.setEmail("boudboi@foret.com");
         //p.setNoAssuMaladie("RATM89121134");
         
-        p.enregistrerPatient();
+        //p.enregistrerPatient();
         launch(args);
     }
     

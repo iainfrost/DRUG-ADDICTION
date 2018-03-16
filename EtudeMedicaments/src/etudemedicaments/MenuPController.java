@@ -15,7 +15,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 /**
@@ -68,6 +71,20 @@ public class MenuPController implements Initializable {
             Scene home_page_scene = new Scene(home_page_parent);
             Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             app_stage.hide(); //optional
+            
+            //bouton ajouter actif et visible
+            home_page_scene.lookup("#btnAjouter").setVisible(true);
+            home_page_scene.lookup("#btnAjouter").setDisable(false);
+            //bouton modifier inactif et invisible
+            home_page_scene.lookup("#btnModifier").setVisible(false);
+            home_page_scene.lookup("#btnModifier").setDisable(true);
+            //bouton supprimer inactif et invisible
+            home_page_scene.lookup("#btnSupprimer").setVisible(false);
+            home_page_scene.lookup("#btnSupprimer").setDisable(true);
+            //bouton recherche inactif et invisible
+            home_page_scene.lookup("#btnRechercher").setVisible(false);
+            home_page_scene.lookup("#btnRechercher").setDisable(true);
+            
             app_stage.setScene(home_page_scene);
             app_stage.show();  
             
@@ -79,6 +96,82 @@ public class MenuPController implements Initializable {
         }
     
     }
-     
+      public void handleModifier(ActionEvent event) throws IOException {
+       
+         
+        try{
+            Parent home_page_parent = FXMLLoader.load(getClass().getResource("formulaire.fxml"));
+            Scene home_page_scene = new Scene(home_page_parent);
+            Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            app_stage.hide(); //optional
+            
+            //bouton ajouter inactif et invisible
+            home_page_scene.lookup("#btnAjouter").setVisible(false);
+            home_page_scene.lookup("#btnAjouter").setDisable(true);
+            //bouton modifier actif et visible
+            home_page_scene.lookup("#btnModifier").setVisible(true);
+            home_page_scene.lookup("#btnModifier").setDisable(false);
+            //bouton supprimer inactif et invisible
+            home_page_scene.lookup("#btnSupprimer").setVisible(false);
+            home_page_scene.lookup("#btnSupprimer").setDisable(true);
+            //bouton recherche actif et visible
+            home_page_scene.lookup("#btnRechercher").setVisible(true);
+            home_page_scene.lookup("#btnRechercher").setDisable(false);
+            
+            app_stage.setScene(home_page_scene);
+            
+            
+            app_stage.show();  
+            
+            ((Node)(event.getSource())).getScene().getWindow().hide();
+        
+        }
+        catch (Exception e){
+            
+        }
     
+    }
+    public void handleSupprimer(ActionEvent event) throws IOException {
+       
+         
+        try{
+            Parent home_page_parent = FXMLLoader.load(getClass().getResource("formulaire.fxml"));
+            Scene home_page_scene = new Scene(home_page_parent);
+            Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            app_stage.hide(); //optional
+            
+            //bouton ajouter inactif et invisible
+            home_page_scene.lookup("#btnAjouter").setVisible(false);
+            home_page_scene.lookup("#btnAjouter").setDisable(true);
+            //bouton modifier inactif et invisible
+            home_page_scene.lookup("#btnModifier").setVisible(false);
+            home_page_scene.lookup("#btnModifier").setDisable(true);
+            //bouton supprimer actif et visible
+            home_page_scene.lookup("#btnSupprimer").setVisible(true);
+            home_page_scene.lookup("#btnSupprimer").setDisable(false);
+            //bouton recherche inactif et invisible
+            home_page_scene.lookup("#btnRechercher").setVisible(true);
+            home_page_scene.lookup("#btnRechercher").setDisable(false);
+            
+            app_stage.setScene(home_page_scene);
+            app_stage.show();  
+            
+            ((Node)(event.getSource())).getScene().getWindow().hide();
+        
+        }
+        catch (Exception e){
+            
+        }
+    
+    }
+    public void handleHelp(ActionEvent event) throws IOException {
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle(null);
+        alert.setHeaderText(null);
+        alert.setContentText("Arrange-toi tout seul, t'es supposé de savoir comment !!!");
+
+        alert.showAndWait();
+        
+       
+    }
 }

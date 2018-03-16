@@ -5,15 +5,21 @@
  */
 package etudemedicaments;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -58,8 +64,16 @@ public class FormulaireController implements Initializable {
     
     //methodes
     @FXML
-    public void retournerMenuPrincipal(){
-        System.out.println("retour menu principal");
+    public void retournerMenuPrincipal(ActionEvent event) throws IOException{
+        //System.out.println("retour menu principal");
+        Parent root = FXMLLoader.load(getClass().getResource("menuP.fxml"));
+        Stage stage = new Stage();
+        stage.setTitle("Addiction à la drogue - Analyse");
+        stage.setScene(new Scene(root));
+        stage.setResizable(false);
+        stage.show();
+        // Hide this current window (if this is what you want)
+        ((Node)(event.getSource())).getScene().getWindow().hide();
     }
     
     @FXML
