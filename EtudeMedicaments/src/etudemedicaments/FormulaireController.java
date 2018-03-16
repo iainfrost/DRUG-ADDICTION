@@ -32,10 +32,10 @@ public class FormulaireController implements Initializable {
     @FXML
     private void handleButtonAction(ActionEvent event) {
     
-        btnAjouter.setOnAction((event) -> {
+        //btnAjouter.setOnAction((event) -> {
     // Button was clicked, do something...
     System.out.println("You licked me!");
-});
+    //});
         
         
     }
