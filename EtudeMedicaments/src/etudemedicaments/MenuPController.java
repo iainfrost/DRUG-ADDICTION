@@ -52,6 +52,7 @@ public class MenuPController implements Initializable {
             Scene home_page_scene = new Scene(home_page_parent);
             Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             app_stage.hide(); //optional
+            app_stage.setTitle("Addiction à la drogue - Analyser une étude");
             app_stage.setScene(home_page_scene);
             app_stage.show();  
             
@@ -72,6 +73,7 @@ public class MenuPController implements Initializable {
             Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             app_stage.hide(); //optional
             
+            app_stage.setTitle("Addiction à la drogue - Ajouter un patient");
             //bouton ajouter actif et visible
             home_page_scene.lookup("#btnAjouter").setVisible(true);
             home_page_scene.lookup("#btnAjouter").setDisable(false);
@@ -104,6 +106,7 @@ public class MenuPController implements Initializable {
             Scene home_page_scene = new Scene(home_page_parent);
             Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             app_stage.hide(); //optional
+            app_stage.setTitle("Addiction à la drogue - Modifier un patient");
             
             //bouton ajouter inactif et invisible
             home_page_scene.lookup("#btnAjouter").setVisible(false);
@@ -139,7 +142,7 @@ public class MenuPController implements Initializable {
             Scene home_page_scene = new Scene(home_page_parent);
             Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             app_stage.hide(); //optional
-            
+            app_stage.setTitle("Addiction à la drogue - Supprimer un patient");
             //bouton ajouter inactif et invisible
             home_page_scene.lookup("#btnAjouter").setVisible(false);
             home_page_scene.lookup("#btnAjouter").setDisable(true);
@@ -167,7 +170,7 @@ public class MenuPController implements Initializable {
     public void handleHelp(ActionEvent event) throws IOException {
         Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle(null);
-        alert.setHeaderText(null);
+        alert.setHeaderText("Aide à l'utilisateur");
         alert.setContentText("Arrange-toi tout seul, t'es supposé de savoir comment !!!");
 
         alert.showAndWait();

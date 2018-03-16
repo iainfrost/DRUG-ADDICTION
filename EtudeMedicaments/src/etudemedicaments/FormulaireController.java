@@ -68,7 +68,7 @@ public class FormulaireController implements Initializable {
         //System.out.println("retour menu principal");
         Parent root = FXMLLoader.load(getClass().getResource("menuP.fxml"));
         Stage stage = new Stage();
-        stage.setTitle("Addiction à la drogue - Analyse");
+        stage.setTitle("Addiction à la drogue - Menu principal");
         stage.setScene(new Scene(root));
         stage.setResizable(false);
         stage.show();
