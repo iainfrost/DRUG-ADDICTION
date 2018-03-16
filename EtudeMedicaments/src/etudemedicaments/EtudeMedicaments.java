@@ -34,10 +34,28 @@ public class EtudeMedicaments extends Application {
     }
   
     /**
-     * @param args the command line arguments
+     * @param args the command line argument
      */
-    public static void main(String[] args) {
+    public static void main(String[] args)
+        throws Exception
+    {
+        SimpleDataSource.init();
+        Patient p = new Patient();
+        p.chargerPatient(3);
+        System.out.println(p.getNom());
+        p.setNom("Raton");
+        //p.setPrenom("Marmotte");
+        //p.setAdresse("86, rue des animaux morts Sherbrooke, QC CA");
+        //p.setTelMaison("123-456-7890");
+        //p.setTelMobile("123-456-7890");
+        //p.setTelUrgence("123-456-7890");
+        //p.setContactUrgence("Castor");
+        //p.setEmail("boudboi@foret.com");
+        //p.setNoAssuMaladie("RATM89121134");
+        
+        p.enregistrerPatient();
         launch(args);
     }
     
 }
+
