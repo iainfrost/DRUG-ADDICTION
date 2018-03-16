@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="530.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="etudemedicaments.AnalyseController">
+   <children>
+      <Label layoutX="23.0" layoutY="18.0" text="Informations">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="50.0" layoutY="54.0" text="Nom de l'étude :" AnchorPane.leftAnchor="50.0" />
+      <Label layoutX="50.0" layoutY="71.0" text="Nombre de participants :" AnchorPane.leftAnchor="50.0" />
+      <Label layoutX="50.0" layoutY="88.0" text="Date de début :" AnchorPane.leftAnchor="50.0" />
+      <Label layoutX="50.0" layoutY="105.0" text="Date de fin :" AnchorPane.leftAnchor="50.0" />
+      <Label layoutX="50.0" layoutY="122.0" text="Professionnel responsable :" AnchorPane.leftAnchor="50.0" />
+      <Label layoutX="23.0" layoutY="157.0" text="Résultats">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <TabPane layoutX="1.0" layoutY="197.0" prefHeight="282.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Fréquence de prise">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <BarChart layoutX="50.0" layoutY="9.0" prefHeight="205.0" prefWidth="500.0">
+                          <xAxis>
+                            <CategoryAxis side="BOTTOM" />
+                          </xAxis>
+                          <yAxis>
+                            <NumberAxis side="LEFT" />
+                          </yAxis>
+                        </BarChart>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+      <Button fx:id="btnRetour" layoutX="494.0" layoutY="491.0" mnemonicParsing="false" onAction="#handleRetour" text="Retour" />
+   </children>
+</AnchorPane>
