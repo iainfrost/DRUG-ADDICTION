@@ -13,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 
 /**
  * FXML Controller class
@@ -21,23 +22,67 @@ import javafx.scene.control.Label;
  */
 public class FormulaireController implements Initializable {
 
+    //boutons
     @FXML
     private Button btnAjouter;
+    @FXML
     private Button btnModifier;
+    @FXML
     private Button btnSupprimer;
+    @FXML
     private Button btnMenuPrincipal;
+    @FXML
     private Button btnRechercher;
+    
+    //choicebox
+    @FXML
     private ChoiceBox cbEtude;
+  
+    //textfields    
+    @FXML
+    private TextField txtNAM;
+    @FXML
+    private TextField txtNom;
+    @FXML
+    private TextField txtPrenom;
+    @FXML
+    private TextField txtAdresse;
+    @FXML
+    private TextField txtTelMaison;
+    @FXML
+    private TextField txtTelMobile;
+    @FXML
+    private TextField txtContact;
+    @FXML
+    private TextField txtContactTelephone;
+    
+    //methodes
+    @FXML
+    public void retournerMenuPrincipal(){
+        System.out.println("retour menu principal");
+    }
     
     @FXML
-    private void handleButtonAction(ActionEvent event) {
+    public void rechercherPatient(){
+        System.out.println("recherche d'un patient");
+    }
+
+    @FXML
+    public void ajouterPatient(){
+        System.out.println("Ajout d'un patient");
+        System.out.println("NAM :" + txtNAM.getText());
+        System.out.println("Prenom :" + txtPrenom.getText() + " " + "Nom : " + txtNom.getText());       
+        
+    }
     
-        //btnAjouter.setOnAction((event) -> {
-    // Button was clicked, do something...
-    System.out.println("You licked me!");
-    //});
-        
-        
+    @FXML
+    public void modifierPatient(){
+        System.out.println("Modification d'un patient");
+    }
+    
+    @FXML
+    public void supprimerPatient(){
+        System.out.println("Suppression d'un patient");
     }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
