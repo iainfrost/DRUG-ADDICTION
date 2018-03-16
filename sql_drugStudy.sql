@@ -83,7 +83,7 @@ CREATE TABLE prescription(
 
 CREATE TABLE prise_medicament(
 	id_prise_medicament INT NOT NULL UNIQUE AUTO_INCREMENT,
-	date_prise_medicament TIMESTAMP,
+	date_prise_medicament DATE,
 	id_patient INT,
 	id_prescription INT,
 	PRIMARY KEY(id_prise_medicament),
