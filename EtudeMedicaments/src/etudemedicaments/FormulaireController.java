@@ -66,15 +66,12 @@ public class FormulaireController implements Initializable {
     public void rechercherPatient(){
         System.out.println("recherche d'un patient");
     }
-    
+
     @FXML
     public void ajouterPatient(){
         System.out.println("Ajout d'un patient");
         System.out.println("NAM :" + txtNAM.getText());
-        System.out.println("Prenom :" + txtPrenom.getText() + " " + "Nom : " + txtNom.getText());
-        
-        
-        
+        System.out.println("Prenom :" + txtPrenom.getText() + " " + "Nom : " + txtNom.getText());       
         
     }
     
