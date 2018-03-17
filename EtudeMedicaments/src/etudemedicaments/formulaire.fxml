@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
@@ -9,45 +8,39 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="386.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="etudemedicaments.FormulaireController">
+<VBox prefHeight="353.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="etudemedicaments.FormulaireController">
    <children>
      
-          <AnchorPane prefHeight="387.0" prefWidth="634.0">
+          <AnchorPane prefHeight="357.0" prefWidth="627.0">
                <children>
-                  <Label layoutX="65.0" layoutY="43.0" prefHeight="17.0" prefWidth="199.0" text="Numero d'Assurance Maladie : " />
-                  <TextField fx:id="txtNAM" layoutX="265.0" layoutY="39.0" />
-                  <Label layoutX="65.0" layoutY="79.0" text="Nom : " />
-                  <Label layoutX="341.0" layoutY="79.0" text="Prénom : " />
-                  <Label layoutX="65.0" layoutY="115.0" text="Adresse : " />
-                  <TextField fx:id="txtNom" layoutX="116.0" layoutY="75.0" />
-                  <TextField fx:id="txtPrenom" layoutX="402.0" layoutY="75.0" prefHeight="25.0" prefWidth="146.0" />
-                  <TextField fx:id="txtAdresse" layoutX="116.0" layoutY="111.0" prefHeight="25.0" prefWidth="432.0" />
-                  <Label layoutX="69.0" layoutY="168.0" text="Téléphone" />
-                  <Label layoutX="69.0" layoutY="192.0" text="Maison : " />
-                  <Label layoutX="343.0" layoutY="192.0" text="Mobile : " />
-                  <Separator layoutX="65.0" layoutY="151.0" prefHeight="1.0" prefWidth="483.0" />
-                  <Separator layoutX="65.0" layoutY="219.0" prefHeight="0.0" prefWidth="480.0" />
-                  <TextField fx:id="txtTelMaison" layoutX="116.0" layoutY="188.0" />
-                  <TextField fx:id="txtTelMobile" layoutX="405.0" layoutY="188.0" prefHeight="25.0" prefWidth="147.0" />
-                  <Label layoutX="69.0" layoutY="232.0" text="Contact : " />
-                  <Label layoutX="339.0" layoutY="232.0" text="Téléphone : " />
-                  <Separator layoutX="65.0" layoutY="276.0" prefHeight="0.0" prefWidth="482.0" />
-                  <Label layoutX="69.0" layoutY="291.0" text="Étude : " />
-                  <Separator layoutX="65.0" layoutY="326.0" prefHeight="0.0" prefWidth="481.0" />
-                  <Button fx:id="btnMenuPrincipal" layoutX="265.0" layoutY="348.0" mnemonicParsing="false" onAction="#retournerMenuPrincipal" text="Menu Principal" />
-                  <Button fx:id="btnAjouter" layoutX="496.0" layoutY="348.0" mnemonicParsing="false" onAction="#ajouterPatient" text="Ajouter" />
-                  <TextField fx:id="txtContact" layoutX="116.0" layoutY="228.0" />
-                  <TextField fx:id="txtContactTelephone" layoutX="404.0" layoutY="228.0" />
-                  <ChoiceBox fx:id="cbEtude" layoutX="116.0" layoutY="287.0" prefWidth="150.0" />
-                  <Button fx:id="btnRechercher" disable="true" layoutX="448.0" layoutY="10.0" mnemonicParsing="false" onAction="#rechercherPatient" prefHeight="25.0" prefWidth="103.0" text="Rechercher" visible="false" />
-                  <Button fx:id="btnModifier" disable="true" layoutX="493.0" layoutY="348.0" mnemonicParsing="false" onAction="#modifierPatient" text="Modifier" visible="false" />
-                  <Button fx:id="btnSupprimer" disable="true" layoutX="488.0" layoutY="348.0" mnemonicParsing="false" onAction="#supprimerPatient" text="Supprimer" visible="false" />
-            <Label fx:id="lblID" layoutX="65.0" layoutY="14.0" prefHeight="17.0" prefWidth="199.0" text="Identifiant : " />
-            <TextField fx:id="txtIdentifiant" layoutX="265.0" layoutY="10.0">
-               <cursor>
-                  <Cursor fx:constant="CLOSED_HAND" />
-               </cursor>
-            </TextField>
+                  <Label layoutX="65.0" layoutY="10.0" text="Numero d'Assurance Maladie : " />
+                  <TextField fx:id="txtNAM" layoutX="233.0" layoutY="6.0" />
+                  <Label layoutX="65.0" layoutY="46.0" text="Nom : " />
+                  <Label layoutX="341.0" layoutY="46.0" text="Prénom : " />
+                  <Label layoutX="65.0" layoutY="82.0" text="Adresse : " />
+                  <TextField fx:id="txtNom" layoutX="116.0" layoutY="42.0" />
+                  <TextField fx:id="txtPrenom" layoutX="402.0" layoutY="42.0" prefHeight="25.0" prefWidth="146.0" />
+                  <TextField fx:id="txtAdresse" layoutX="116.0" layoutY="78.0" prefHeight="25.0" prefWidth="432.0" />
+                  <Label layoutX="69.0" layoutY="135.0" text="Téléphone" />
+                  <Label layoutX="69.0" layoutY="159.0" text="Maison : " />
+                  <Label layoutX="343.0" layoutY="159.0" text="Mobile : " />
+                  <Separator layoutX="65.0" layoutY="118.0" prefHeight="1.0" prefWidth="483.0" />
+                  <Separator layoutX="65.0" layoutY="186.0" prefHeight="0.0" prefWidth="480.0" />
+                  <TextField fx:id="txtTelMaison" layoutX="116.0" layoutY="155.0" />
+                  <TextField fx:id="txtTelMobile" layoutX="405.0" layoutY="155.0" prefHeight="25.0" prefWidth="147.0" />
+                  <Label layoutX="69.0" layoutY="199.0" text="Contact : " />
+                  <Label layoutX="339.0" layoutY="199.0" text="Téléphone : " />
+                  <Separator layoutX="65.0" layoutY="243.0" prefHeight="0.0" prefWidth="482.0" />
+                  <Label layoutX="69.0" layoutY="258.0" text="Étude : " />
+                  <Separator layoutX="65.0" layoutY="293.0" prefHeight="0.0" prefWidth="481.0" />
+                  <Button fx:id="btnMenuPrincipal" layoutX="265.0" layoutY="315.0" mnemonicParsing="false" onAction="#retournerMenuPrincipal" text="Menu Principal" />
+                  <Button fx:id="btnAjouter" layoutX="496.0" layoutY="315.0" mnemonicParsing="false" onAction="#ajouterPatient" text="Ajouter" />
+                  <TextField fx:id="txtContact" layoutX="116.0" layoutY="195.0" />
+                  <TextField fx:id="txtContactTelephone" layoutX="404.0" layoutY="195.0" />
+                  <ChoiceBox fx:id="cbEtude" layoutX="116.0" layoutY="254.0" prefWidth="150.0" />
+                  <Button fx:id="btnRechercher" disable="true" layoutX="475.0" layoutY="6.0" mnemonicParsing="false" onAction="#rechercherPatient" text="Rechercher" visible="false" />
+                  <Button fx:id="btnModifier" disable="true" layoutX="493.0" layoutY="315.0" mnemonicParsing="false" onAction="#modifierPatient" text="Modifier" visible="false" />
+                  <Button fx:id="btnSupprimer" disable="true" layoutX="488.0" layoutY="315.0" mnemonicParsing="false" onAction="#supprimerPatient" text="Supprimer" visible="false" />
                </children></AnchorPane>
         
    </children>

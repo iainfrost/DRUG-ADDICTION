@@ -40,8 +40,8 @@ public class EtudeMedicaments extends Application {
         throws Exception
     {
         SimpleDataSource.init();
-        Patient p = new Patient();
-        p.chargerPatient(3);
+       //Patient p = new Patient();
+         /*p.chargerPatient(3);
         System.out.println(p.getNom());
         p.setNom("Raton");
         //p.setPrenom("Marmotte");
@@ -53,7 +53,7 @@ public class EtudeMedicaments extends Application {
         //p.setEmail("boudboi@foret.com");
         //p.setNoAssuMaladie("RATM89121134");
         
-        p.enregistrerPatient();
+        p.enregistrerPatient();*/
         launch(args);
     }
     

@@ -60,7 +60,7 @@ public class MenuPController implements Initializable {
         
         }
         catch (Exception e){
-            
+            System.out.println("Erreur a ouvrir fenêtre analyse: " +e);
         }
     
     }
@@ -107,7 +107,7 @@ public class MenuPController implements Initializable {
         
         }
         catch (Exception e){
-            
+            System.out.println("Erreur a ouvrir formulaire ajouter: " +e);
         }
     
     }
@@ -154,7 +154,7 @@ public class MenuPController implements Initializable {
         
         }
         catch (Exception e){
-            
+            System.out.println("Erreur a ouvrir formulaire modifier: " +e);
         }
     
     }
@@ -199,7 +199,7 @@ public class MenuPController implements Initializable {
         
         }
         catch (Exception e){
-            
+            System.out.println("Erreur a ouvrir formulaire Supprimer: " +e);
         }
     
     }
