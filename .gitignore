@@ -3,4 +3,5 @@
 /EtudeMedicaments/nbproject/private/
 /EtudeMedicaments/dist/
 /EtudeMedicaments/build/
-C:\Users\Utilisateur\Desktop\TP_DRUG_ADDICTION\EtudeMedicaments\database.properties
+#config différente.
+/EtudeMedicaments/database.properties
