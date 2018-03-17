@@ -86,6 +86,19 @@ public class MenuPController implements Initializable {
             //bouton recherche inactif et invisible
             home_page_scene.lookup("#btnRechercher").setVisible(false);
             home_page_scene.lookup("#btnRechercher").setDisable(true);
+             //champs de données actifs a part txtID
+            home_page_scene.lookup("#txtIdentifiant").setDisable(true);
+            home_page_scene.lookup("#txtIdentifiant").setVisible(false);
+            home_page_scene.lookup("#lblID").setVisible(false);
+            home_page_scene.lookup("#txtNAM").setDisable(false);
+            home_page_scene.lookup("#txtNom").setDisable(false);
+            home_page_scene.lookup("#txtPrenom").setDisable(false);
+            home_page_scene.lookup("#txtAdresse").setDisable(false);
+            home_page_scene.lookup("#txtTelMaison").setDisable(false);
+            home_page_scene.lookup("#txtTelMobile").setDisable(false);
+            home_page_scene.lookup("#txtContact").setDisable(false);
+            home_page_scene.lookup("#txtContactTelephone").setDisable(false);
+            home_page_scene.lookup("#cbEtude").setDisable(false);
             
             app_stage.setScene(home_page_scene);
             app_stage.show();  
@@ -120,10 +133,21 @@ public class MenuPController implements Initializable {
             //bouton recherche actif et visible
             home_page_scene.lookup("#btnRechercher").setVisible(true);
             home_page_scene.lookup("#btnRechercher").setDisable(false);
+             //champs de données actifs 
+            home_page_scene.lookup("#txtIdentifiant").setDisable(false);
+            home_page_scene.lookup("#txtIdentifiant").requestFocus();
+            home_page_scene.lookup("#txtNAM").setDisable(false);
+            home_page_scene.lookup("#txtNom").setDisable(false);
+            home_page_scene.lookup("#txtPrenom").setDisable(false);
+            home_page_scene.lookup("#txtAdresse").setDisable(false);
+            home_page_scene.lookup("#txtTelMaison").setDisable(false);
+            home_page_scene.lookup("#txtTelMobile").setDisable(false);
+            home_page_scene.lookup("#txtContact").setDisable(false);
+            home_page_scene.lookup("#txtContactTelephone").setDisable(false);
+            home_page_scene.lookup("#cbEtude").setDisable(false);
             
             app_stage.setScene(home_page_scene);
-            
-            
+                        
             app_stage.show();  
             
             ((Node)(event.getSource())).getScene().getWindow().hide();
@@ -155,6 +179,18 @@ public class MenuPController implements Initializable {
             //bouton recherche inactif et invisible
             home_page_scene.lookup("#btnRechercher").setVisible(true);
             home_page_scene.lookup("#btnRechercher").setDisable(false);
+            //champs de données inactifs à part txtID
+            home_page_scene.lookup("#txtIdentifiant").setDisable(false);
+            home_page_scene.lookup("#txtIdentifiant").requestFocus();
+            home_page_scene.lookup("#txtNAM").setDisable(true);
+            home_page_scene.lookup("#txtNom").setDisable(true);
+            home_page_scene.lookup("#txtPrenom").setDisable(true);
+            home_page_scene.lookup("#txtAdresse").setDisable(true);
+            home_page_scene.lookup("#txtTelMaison").setDisable(true);
+            home_page_scene.lookup("#txtTelMobile").setDisable(true);
+            home_page_scene.lookup("#txtContact").setDisable(true);
+            home_page_scene.lookup("#txtContactTelephone").setDisable(true);
+            home_page_scene.lookup("#cbEtude").setDisable(true);
             
             app_stage.setScene(home_page_scene);
             app_stage.show();  

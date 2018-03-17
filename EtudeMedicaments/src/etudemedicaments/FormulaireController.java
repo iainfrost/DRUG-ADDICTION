@@ -7,6 +7,7 @@ package etudemedicaments;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -44,7 +45,9 @@ public class FormulaireController implements Initializable {
     @FXML
     private ChoiceBox cbEtude;
   
-    //textfields    
+    //textfields 
+    @FXML
+    private TextField txtIdentifiant;
     @FXML
     private TextField txtNAM;
     @FXML
@@ -77,8 +80,22 @@ public class FormulaireController implements Initializable {
     }
     
     @FXML
-    public void rechercherPatient(){
+    public void rechercherPatient() throws SQLException{
+        Patient p = new Patient();
         System.out.println("recherche d'un patient");
+        //String id = txtIdentifiant.getText();
+        //System.out.println(id);
+        p.setId(Integer.valueOf(txtIdentifiant.getText()));
+        System.out.println(p.getId());
+        p.chargerPatient(p.getId());
+        txtNAM.setText(p.getNoAssuMaladie());
+        txtNom.setText(p.getNom());
+        txtPrenom.setText(p.getPrenom());
+        txtAdresse.setText(p.getAdresse());
+        txtTelMaison.setText(p.getTelMaison());
+        txtTelMobile.setText(p.getTelMobile());
+        txtContact.setText(p.getContactUrgence());
+        txtContactTelephone.setText(p.getTelUrgence());
     }
 
     @FXML

@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
+import javafx.scene.control.Alert;
 
 /**
  *
@@ -37,6 +38,16 @@ public class Patient {
     public Patient() {
         this.priseMedicament = new ArrayList<>();
         this.id = 0;
+        nom="";
+        prenom="";
+        adresse="";
+        dateNaissance=new Date();
+        telMaison="";
+        telMobile="";
+        telUrgence="";
+        contactUrgence="";
+        email="";
+        noAssuMaladie="";
     }
     
     //Gettteurs
@@ -90,7 +101,9 @@ public class Patient {
     }
     
     //Setteur
-
+    public void setId(int id) {
+        this.id = id;
+    }
     public void setNom(String nom) {
         this.nom = nom;
     }
@@ -186,6 +199,12 @@ public class Patient {
             else
             {
                 System.out.println("Aucun patient associé trouvé");
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle(null);
+                alert.setHeaderText(null);
+                alert.setContentText("Aucun patient associé trouvé");
+
+        alert.showAndWait();
             }
         }
         finally
