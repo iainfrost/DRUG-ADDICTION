@@ -84,13 +84,14 @@ public class FormulaireController implements Initializable {
     
     @FXML
     public void rechercherPatient() throws SQLException{
-        Patient p = new Patient();
+        //Patient p = new Patient();
         System.out.println("recherche d'un patient");
         //String id = txtIdentifiant.getText();
         //System.out.println(id);
         p.setId(Integer.valueOf(txtIdentifiant.getText()));
         System.out.println(p.getId());
         p.chargerPatient(p.getId());
+        System.out.println(p.getId());
         txtNAM.setText(p.getNoAssuMaladie());
         txtNom.setText(p.getNom());
         txtPrenom.setText(p.getPrenom());
@@ -118,15 +119,28 @@ public class FormulaireController implements Initializable {
     }
     
     @FXML
-    public void modifierPatient(){
+    public void modifierPatient() throws SQLException{
         System.out.println("Modification d'un patient");
         
+        p.setId(Integer.valueOf(txtIdentifiant.getText()));
+        p.chargerPatient(p.getId());
+        
+         p.setNoAssuMaladie(txtNAM.getText());
+        p.setNom(txtNom.getText());
+        p.setPrenom(txtPrenom.getText());
+        p.setAdresse(txtAdresse.getText());
+        p.setTelMaison(txtTelMaison.getText());
+        p.setTelMobile(txtTelMobile.getText());
+        p.setContactUrgence(txtContact.getText());
+        p.setTelUrgence(txtContactTelephone.getText());
+        
+        p.modPatient();
     }
     
     @FXML
-    public void supprimerPatient(){
-        System.out.println("Suppression d'un patient");
-        
+    public void supprimerPatient() throws SQLException{
+        System.out.println("Suppression du patient #" + p.getId());
+        p.effPatient();
     }
     @Override
     public void initialize(URL url, ResourceBundle rb) {

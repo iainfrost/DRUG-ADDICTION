@@ -284,10 +284,9 @@ public class Patient {
         try
         {
         PreparedStatement stat=conn.prepareStatement (
-            "DELETE FROM patient"
-            + "WHERE id_patient = ?;"
+            "DELETE FROM patient WHERE id_patient = ?;"
             );
-            stat.setInt(1, this.id);
+            stat.setInt(1, id);
             stat.executeUpdate();
         }
         finally
