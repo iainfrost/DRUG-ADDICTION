@@ -212,7 +212,89 @@ public class Patient {
             conn.close();
         }
     }
+        
+    public void modPatient() throws SQLException{
+        Connection conn = SimpleDataSource.getConnection();
+        
+        try
+        {
+            PreparedStatement stat = conn.prepareStatement (
+                    "UPDATE patient "
+                            + "SET nom_patient = ?, "
+                            + "prenom_patient = ?, "
+                            + "adresse_patient = ?, "
+                            + "no_tel_maison = ?, "
+                            + "no_tel_mobile = ?, "
+                            + "no_tel_urgences = ?, "
+                            + "contact_urgences = ?, "
+                            + "email_patient = ?, "
+                            + "numero_assu_maladie = ?"
+                            + "WHERE id_patient = ?;");
+                    stat.setString(1, this.nom);
+                    stat.setString(2, this.prenom);
+                    stat.setString(3, this.adresse);
+                    //stat.setDate(4, (java.sql.Date) this.dateNaissance);
+                    stat.setString(4, this.telMaison);
+                    stat.setString(5, this.telMobile);
+                    stat.setString(6, this.telUrgence);
+                    stat.setString(7, this.contactUrgence);
+                    stat.setString(8, this.email);
+                    stat.setString(9, this.noAssuMaladie);
+                    stat.setInt(10, this.id);
+                    stat.executeUpdate();
+        }
+        finally
+        {
+            conn.close();
+        
+        }
+    }
     
+     public void ajoutPatient() throws SQLException{
+        Connection conn = SimpleDataSource.getConnection();
+        //resetPatient();
+        try
+        {
+            PreparedStatement stat = conn.prepareStatement (
+                    "INSERT INTO patient "
+                            + "(nom_patient, prenom_patient, adresse_patient, no_tel_maison, no_tel_mobile, no_tel_urgences, contact_urgences, email_patient, numero_assu_maladie) "
+                            + "VALUES (?,?,?,?,?,?,?,?,?);");
+                    stat.setString(1, this.nom);
+                    stat.setString(2, this.prenom);
+                    stat.setString(3, this.adresse);
+                    //stat.setDate(4, (java.sql.Date) this.dateNaissance);
+                    stat.setString(4, this.telMaison);
+                    stat.setString(5, this.telMobile);
+                    stat.setString(6, this.telUrgence);
+                    stat.setString(7, this.contactUrgence);
+                    stat.setString(8, this.email);
+                    stat.setString(9, this.noAssuMaladie);
+                    
+                    stat.executeUpdate();
+        }
+        finally
+        {
+            conn.close();
+        
+        }
+    }
+     
+     public void effPatient() throws SQLException{
+        Connection conn = SimpleDataSource.getConnection();
+        try
+        {
+        PreparedStatement stat=conn.prepareStatement (
+            "DELETE FROM patient"
+            + "WHERE id_patient = ?;"
+            );
+            stat.setInt(1, this.id);
+            stat.executeUpdate();
+        }
+        finally
+        {
+            conn.close();
+        }
+     }
     public void enregistrerPatient() 
         throws SQLException
     {

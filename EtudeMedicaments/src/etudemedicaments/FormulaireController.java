@@ -65,6 +65,9 @@ public class FormulaireController implements Initializable {
     @FXML
     private TextField txtContactTelephone;
     
+    
+    Patient p = new Patient();
+    
     //methodes
     @FXML
     public void retournerMenuPrincipal(ActionEvent event) throws IOException{
@@ -99,21 +102,31 @@ public class FormulaireController implements Initializable {
     }
 
     @FXML
-    public void ajouterPatient(){
+    public void ajouterPatient() throws SQLException{
         System.out.println("Ajout d'un patient");
-        System.out.println("NAM :" + txtNAM.getText());
-        System.out.println("Prenom :" + txtPrenom.getText() + " " + "Nom : " + txtNom.getText());       
-        
+        //System.out.println("NAM :" + txtNAM.getText());
+        //System.out.println("Prenom :" + txtPrenom.getText() + " " + "Nom : " + txtNom.getText());       
+        p.setNoAssuMaladie(txtNAM.getText());
+        p.setNom(txtNom.getText());
+        p.setPrenom(txtPrenom.getText());
+        p.setAdresse(txtAdresse.getText());
+        p.setTelMaison(txtTelMaison.getText());
+        p.setTelMobile(txtTelMobile.getText());
+        p.setContactUrgence(txtContact.getText());
+        p.setTelUrgence(txtContactTelephone.getText());
+        p.ajoutPatient();
     }
     
     @FXML
     public void modifierPatient(){
         System.out.println("Modification d'un patient");
+        
     }
     
     @FXML
     public void supprimerPatient(){
         System.out.println("Suppression d'un patient");
+        
     }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
