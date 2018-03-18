@@ -204,7 +204,7 @@ public class Patient {
                 alert.setHeaderText(null);
                 alert.setContentText("Aucun patient associé trouvé");
 
-        alert.showAndWait();
+                alert.showAndWait();
             }
         }
         finally

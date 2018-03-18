@@ -8,7 +8,10 @@ package etudemedicaments;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,6 +21,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -41,9 +45,9 @@ public class FormulaireController implements Initializable {
     @FXML
     private Button btnRechercher;
     
-    //choicebox
+    //combo box
     @FXML
-    private ChoiceBox cbEtude;
+    private ComboBox cbEtude;
   
     //textfields 
     @FXML
@@ -67,6 +71,7 @@ public class FormulaireController implements Initializable {
     
     
     Patient p = new Patient();
+    ArrayList<Etude> etudes= new ArrayList<Etude>();
     
     //methodes
     @FXML
@@ -142,9 +147,22 @@ public class FormulaireController implements Initializable {
         System.out.println("Suppression du patient #" + p.getId());
         p.effPatient();
     }
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-   
+    
+        
+        etudes.add(new Etude());
+        
+        cbEtude.getItems().addAll(
+            "Option 1",
+            "Option 2",
+            "Option 3",
+            "Option 4",
+            "Option 5",
+            "Option 6"
+        );
+        
     }    
     
 }
