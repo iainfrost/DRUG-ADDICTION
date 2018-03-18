@@ -8,7 +8,6 @@ package etudemedicaments;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
-import java.util.Date;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -29,9 +28,7 @@ import javafx.stage.Stage;
  * @author ifros
  */
 public class FormulaireController implements Initializable {
-    
-    Patient p = new Patient();
-    
+
     //boutons
     @FXML
     private Button btnAjouter;
@@ -84,12 +81,12 @@ public class FormulaireController implements Initializable {
     
     @FXML
     public void rechercherPatient() throws SQLException{
+        Patient p = new Patient();
         System.out.println("recherche d'un patient");
-        
         //String id = txtIdentifiant.getText();
         //System.out.println(id);
         p.setId(Integer.valueOf(txtIdentifiant.getText()));
-        //System.out.println(p.getId());
+        System.out.println(p.getId());
         p.chargerPatient(p.getId());
         txtNAM.setText(p.getNoAssuMaladie());
         txtNom.setText(p.getNom());
@@ -102,46 +99,21 @@ public class FormulaireController implements Initializable {
     }
 
     @FXML
-    public void ajouterPatient() throws SQLException{
+    public void ajouterPatient(){
         System.out.println("Ajout d'un patient");
-        //System.out.println("NAM :" + txtNAM.getText());
-        //System.out.println("Prenom :" + txtPrenom.getText() + " " + "Nom : " + txtNom.getText());       
-         //Date e=new Date(1900,01,01);
-        p.setNoAssuMaladie(txtNAM.getText());
-        p.setNom(txtNom.getText());
-        p.setPrenom(txtPrenom.getText());
-        p.setAdresse(txtAdresse.getText());
-        p.setTelMaison(txtTelMaison.getText());
-        p.setTelMobile(txtTelMobile.getText());
-        p.setContactUrgence(txtContact.getText());
-        p.setTelUrgence(txtContactTelephone.getText());
-        //p.setDateNaissance(e);
-        p.ajoutPatient();
+        System.out.println("NAM :" + txtNAM.getText());
+        System.out.println("Prenom :" + txtPrenom.getText() + " " + "Nom : " + txtNom.getText());       
+        
     }
     
     @FXML
-    public void modifierPatient() throws SQLException{
+    public void modifierPatient(){
         System.out.println("Modification d'un patient");
-        
-        p.setId(Integer.valueOf(txtIdentifiant.getText()));
-        p.chargerPatient(p.getId());
-        
-         p.setNoAssuMaladie(txtNAM.getText());
-        p.setNom(txtNom.getText());
-        p.setPrenom(txtPrenom.getText());
-        p.setAdresse(txtAdresse.getText());
-        p.setTelMaison(txtTelMaison.getText());
-        p.setTelMobile(txtTelMobile.getText());
-        p.setContactUrgence(txtContact.getText());
-        p.setTelUrgence(txtContactTelephone.getText());
-        
-        p.modifPatient();
     }
     
     @FXML
-    public void supprimerPatient() throws SQLException{
+    public void supprimerPatient(){
         System.out.println("Suppression d'un patient");
-        p.effacerPatient();
     }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
