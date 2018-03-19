@@ -13,6 +13,8 @@
 
 CREATE DATABASE medicamentEtudeDB;
 
+USE medicamentEtudeDB;
+
 CREATE TABLE patient (
 	id_patient INT NOT NULL UNIQUE AUTO_INCREMENT,
 	nom_patient VARCHAR(32),
