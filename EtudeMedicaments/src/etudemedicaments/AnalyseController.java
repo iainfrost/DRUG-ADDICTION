@@ -43,7 +43,7 @@ public class AnalyseController implements Initializable {
             System.out.print("2 ");
             Stage stage = new Stage();
             System.out.print("3 ");
-            stage.setTitle("Addiction à la drogue - Analyse");
+            stage.setTitle("Addiction à la drogue - Menu Principal");
             System.out.print("4 ");
             stage.setScene(new Scene(root));
             System.out.print("5 ");

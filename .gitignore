@@ -3,3 +3,5 @@
 /EtudeMedicaments/nbproject/private/
 /EtudeMedicaments/dist/
 /EtudeMedicaments/build/
+#config différente.
+/EtudeMedicaments/database.properties

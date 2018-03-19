@@ -5,15 +5,26 @@
  */
 package etudemedicaments;
 
+import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -34,11 +45,13 @@ public class FormulaireController implements Initializable {
     @FXML
     private Button btnRechercher;
     
-    //choicebox
+    //combo box
     @FXML
-    private ChoiceBox cbEtude;
+    private ComboBox cbEtude;
   
-    //textfields    
+    //textfields 
+    @FXML
+    private TextField txtIdentifiant;
     @FXML
     private TextField txtNAM;
     @FXML
@@ -56,37 +69,100 @@ public class FormulaireController implements Initializable {
     @FXML
     private TextField txtContactTelephone;
     
+    
+    Patient p = new Patient();
+    ArrayList<Etude> etudes= new ArrayList<Etude>();
+    
     //methodes
     @FXML
-    public void retournerMenuPrincipal(){
-        System.out.println("retour menu principal");
+    public void retournerMenuPrincipal(ActionEvent event) throws IOException{
+        //System.out.println("retour menu principal");
+        Parent root = FXMLLoader.load(getClass().getResource("menuP.fxml"));
+        Stage stage = new Stage();
+        stage.setTitle("Addiction à la drogue - Menu principal");
+        stage.setScene(new Scene(root));
+        stage.setResizable(false);
+        stage.show();
+        // Hide this current window (if this is what you want)
+        ((Node)(event.getSource())).getScene().getWindow().hide();
     }
     
     @FXML
-    public void rechercherPatient(){
+    public void rechercherPatient() throws SQLException{
+        //Patient p = new Patient();
         System.out.println("recherche d'un patient");
+        //String id = txtIdentifiant.getText();
+        //System.out.println(id);
+        p.setId(Integer.valueOf(txtIdentifiant.getText()));
+        System.out.println(p.getId());
+        p.chargerPatient(p.getId());
+        System.out.println(p.getId());
+        txtNAM.setText(p.getNoAssuMaladie());
+        txtNom.setText(p.getNom());
+        txtPrenom.setText(p.getPrenom());
+        txtAdresse.setText(p.getAdresse());
+        txtTelMaison.setText(p.getTelMaison());
+        txtTelMobile.setText(p.getTelMobile());
+        txtContact.setText(p.getContactUrgence());
+        txtContactTelephone.setText(p.getTelUrgence());
     }
 
     @FXML
-    public void ajouterPatient(){
+    public void ajouterPatient() throws SQLException{
         System.out.println("Ajout d'un patient");
-        System.out.println("NAM :" + txtNAM.getText());
-        System.out.println("Prenom :" + txtPrenom.getText() + " " + "Nom : " + txtNom.getText());       
-        
+        //System.out.println("NAM :" + txtNAM.getText());
+        //System.out.println("Prenom :" + txtPrenom.getText() + " " + "Nom : " + txtNom.getText());       
+        p.setNoAssuMaladie(txtNAM.getText());
+        p.setNom(txtNom.getText());
+        p.setPrenom(txtPrenom.getText());
+        p.setAdresse(txtAdresse.getText());
+        p.setTelMaison(txtTelMaison.getText());
+        p.setTelMobile(txtTelMobile.getText());
+        p.setContactUrgence(txtContact.getText());
+        p.setTelUrgence(txtContactTelephone.getText());
+        p.ajoutPatient();
     }
     
     @FXML
-    public void modifierPatient(){
+    public void modifierPatient() throws SQLException{
         System.out.println("Modification d'un patient");
+        
+        p.setId(Integer.valueOf(txtIdentifiant.getText()));
+        p.chargerPatient(p.getId());
+        
+         p.setNoAssuMaladie(txtNAM.getText());
+        p.setNom(txtNom.getText());
+        p.setPrenom(txtPrenom.getText());
+        p.setAdresse(txtAdresse.getText());
+        p.setTelMaison(txtTelMaison.getText());
+        p.setTelMobile(txtTelMobile.getText());
+        p.setContactUrgence(txtContact.getText());
+        p.setTelUrgence(txtContactTelephone.getText());
+        
+        p.modPatient();
     }
     
     @FXML
-    public void supprimerPatient(){
-        System.out.println("Suppression d'un patient");
+    public void supprimerPatient() throws SQLException{
+        System.out.println("Suppression du patient #" + p.getId());
+        p.effPatient();
     }
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-   
+    
+        
+        etudes.add(new Etude());
+        
+        cbEtude.getItems().addAll(
+            "Option 1",
+            "Option 2",
+            "Option 3",
+            "Option 4",
+            "Option 5",
+            "Option 6"
+        );
+        
     }    
     
 }
