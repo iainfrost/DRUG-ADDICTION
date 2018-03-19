@@ -148,6 +148,11 @@ public class FormulaireController implements Initializable {
         p.effPatient();
     }
     
+    
+    public static void chargerEtudes(){
+        
+    }
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
     
