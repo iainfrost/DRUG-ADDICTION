@@ -173,84 +173,84 @@ insert into prescription (posologie, commentaire, id_medicament, id_etude)
 /* Ajout dans la table prise_medicament */
 
 insert into prise_medicament (date_prise_medicament, id_patient, id_prescription)
-	values ('2008-01-02 10:11:12', 1, 1);
+	values ('2008-01-02', 1, 1);
 	
 insert into prise_medicament (date_prise_medicament, id_patient, id_prescription)
-	values ('2008-01-03 08:56:36', 1, 1);
+	values ('2008-01-03', 1, 1);
 
 insert into prise_medicament (date_prise_medicament, id_patient, id_prescription)
-	values ('2008-01-05 08:24:56', 1, 1);
+	values ('2008-01-05', 1, 1);
 
 insert into prise_medicament (date_prise_medicament, id_patient, id_prescription)
-	values ('2008-01-06 08:03:17', 1, 1);
+	values ('2008-01-06', 1, 1);
 
 insert into prise_medicament (date_prise_medicament, id_patient, id_prescription)
-	values ('2008-01-02 08:47:55', 3, 1);
+	values ('2008-01-02', 3, 1);
 	
 insert into prise_medicament (date_prise_medicament, id_patient, id_prescription)
-	values ('2008-01-03 08:24:56', 3, 1);
+	values ('2008-01-03', 3, 1);
 	
 insert into prise_medicament (date_prise_medicament, id_patient, id_prescription)
-	values ('2008-01-04 08:46:23', 3, 1);         
+	values ('2008-01-04', 3, 1);         
 
 insert into prise_medicament (date_prise_medicament, id_patient, id_prescription)
-	values ('2008-01-05 08:32:15', 3, 1);         
+	values ('2008-01-05', 3, 1);         
 
 insert into prise_medicament (date_prise_medicament, id_patient, id_prescription)
-	values ('2008-01-06 08:49:05', 3, 1);         
+	values ('2008-01-06', 3, 1);         
 
 insert into prise_medicament (date_prise_medicament, id_patient, id_prescription)
-	values ('2008-01-02 08:22:10', 6, 1);         
+	values ('2008-01-02', 6, 1);         
 
 insert into prise_medicament (date_prise_medicament, id_patient, id_prescription)
-	values ('2008-01-03 13:47:34', 6, 1);         
+	values ('2008-01-03', 6, 1);         
 
 insert into prise_medicament (date_prise_medicament, id_patient, id_prescription)
-	values ('2008-01-05 09:01:48', 6, 1);         
+	values ('2008-01-05', 6, 1);         
 
 insert into prise_medicament (date_prise_medicament, id_patient, id_prescription)
-	values ('2008-01-06 08:47:35', 6, 1);         
+	values ('2008-01-06', 6, 1);         
 
 insert into prise_medicament (date_prise_medicament, id_patient, id_prescription)
-	values ('2008-01-02 08:31:45', 8, 1);         
+	values ('2008-01-02', 8, 1);         
 
 insert into prise_medicament (date_prise_medicament, id_patient, id_prescription)
-	values ('2008-01-03 08:58:52', 8, 1);         
+	values ('2008-01-03', 8, 1);         
 
 insert into prise_medicament (date_prise_medicament, id_patient, id_prescription)
-	values ('2008-01-04 09:32:55', 8, 1);         
+	values ('2008-01-04', 8, 1);         
 
 insert into prise_medicament (date_prise_medicament, id_patient, id_prescription)
-	values ('2008-01-05 08:01:00', 8, 1);         
+	values ('2008-01-05', 8, 1);         
 
 insert into prise_medicament (date_prise_medicament, id_patient, id_prescription)
-	values ('2008-01-06 08:52:08', 8, 1);         
+	values ('2008-01-06', 8, 1);         
 
 insert into prise_medicament (date_prise_medicament, id_patient, id_prescription)
-	values ('2008-01-02 08:24:48', 9, 1);         
+	values ('2008-01-02', 9, 1);         
 
 insert into prise_medicament (date_prise_medicament, id_patient, id_prescription)
-	values ('2008-01-03 08:18:12', 9, 1);         
+	values ('2008-01-03', 9, 1);         
 
 insert into prise_medicament (date_prise_medicament, id_patient, id_prescription)
-	values ('2008-01-04 08:56:06', 9, 1);         
+	values ('2008-01-04', 9, 1);         
 
 insert into prise_medicament (date_prise_medicament, id_patient, id_prescription)
-	values ('2008-01-05 08:35:00', 9, 1);         
+	values ('2008-01-05', 9, 1);         
 
 insert into prise_medicament (date_prise_medicament, id_patient, id_prescription)
-	values ('2008-01-06 08:21:34', 9, 1);         
+	values ('2008-01-06', 9, 1);         
 
 insert into prise_medicament (date_prise_medicament, id_patient, id_prescription)
-	values ('2008-01-03 08:34:53', 10, 1);        
+	values ('2008-01-03', 10, 1);        
 
 insert into prise_medicament (date_prise_medicament, id_patient, id_prescription)
-	values ('2008-01-04 08:36:26', 10, 1);        
+	values ('2008-01-04', 10, 1);        
 
 insert into prise_medicament (date_prise_medicament, id_patient, id_prescription)
-	values ('2008-01-05 08:42:23', 10, 1);        
+	values ('2008-01-05', 10, 1);        
 
 insert into prise_medicament (date_prise_medicament, id_patient, id_prescription)
-	values ('2008-01-06 08:21:16', 10, 1);
+	values ('2008-01-06', 10, 1);
 
 	
