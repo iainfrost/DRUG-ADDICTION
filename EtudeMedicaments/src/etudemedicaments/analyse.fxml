@@ -49,7 +49,7 @@
         </tabs>
       </TabPane>
       <Button fx:id="btnRetour" layoutX="494.0" layoutY="491.0" mnemonicParsing="false" onAction="#handleRetour" text="Retour" />
-      <ComboBox fx:id="etudeCB" layoutX="150.0" layoutY="50.0" prefWidth="150.0" />
+      <ComboBox fx:id="etudeCB" layoutX="150.0" layoutY="50.0" onAction="#handleCB" prefWidth="150.0" promptText="Choisir une étude..." />
       <Label fx:id="lblDebut" layoutX="150.0" layoutY="98.0" />
       <Label fx:id="lblFin" layoutX="125.0" layoutY="115.0" />
       <Label fx:id="lblPro" layoutX="211.0" layoutY="132.0" />

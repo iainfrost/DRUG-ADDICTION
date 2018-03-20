@@ -215,5 +215,40 @@ public class Etude {
             stats[i] = prise;
         }
         return stats;
-    } 
+    }
+    
+    public String trouverProf() throws SQLException
+    {
+        String prof = "";
+        
+        
+         Connection conn= SimpleDataSource.getConnection();
+        try
+        {
+            
+            PreparedStatement stat = conn.prepareStatement (
+                "SELECT p.nom_professionnel, p.prenom_professionnel, p.specialite FROM professionnel AS p INNER JOIN ta_etude_professionel AS t ON p.no_professionnel = t.id_prof WHERE t.id_etude = ?"
+                );
+            
+            
+                System.out.println("id : " + this.id);
+                System.out.println(2);
+            
+            stat.setInt(1, this.id);
+            ResultSet result = stat.executeQuery();
+                System.out.println(3);
+                if(!result.next()){
+                    System.out.println("Aucun professionnel n'est associer a cette étude");
+                }
+            prof =  result.getString(2) + " " +result.getString(1) + ", "  + result.getString(3);
+                System.out.println(prof);
+        }
+        finally
+        {
+            conn.close();
+        }
+        
+        
+        return prof;
+    }
 }

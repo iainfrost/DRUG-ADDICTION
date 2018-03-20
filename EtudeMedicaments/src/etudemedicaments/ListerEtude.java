@@ -36,6 +36,7 @@ public class ListerEtude {
                 e.setDescription(result.getString(3));
                 e.setDebut(result.getDate(4));
                 e.setFin(result.getDate(5));
+                e.chargerPatient();
                 
                 liste.add(e);
             }
