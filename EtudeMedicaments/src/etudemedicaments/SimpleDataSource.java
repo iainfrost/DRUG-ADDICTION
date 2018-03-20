@@ -45,7 +45,7 @@ public class SimpleDataSource
    */
    public static Connection getConnection() throws SQLException
    {
-      return DriverManager.getConnection(url, username, password);
+       return DriverManager.getConnection(url, username, password);
    }
 }
 
