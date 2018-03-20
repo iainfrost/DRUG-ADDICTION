@@ -64,8 +64,7 @@ public class AnalyseController implements Initializable {
     }    
     @FXML
     public void handleRetour(ActionEvent event) throws IOException {
-       
-         
+                
         try{
             
             Parent root = FXMLLoader.load(getClass().getResource("menuP.fxml"));
@@ -83,5 +82,24 @@ public class AnalyseController implements Initializable {
             
         }
     
+    }
+    public void handleCB(){
+        String choix = etudeCB.getValue().toString();
+        System.out.println(choix);
+        
+        try{
+            for(Etude e: etudes){
+                    if(e.getTitre().equals(choix)){
+                        
+                        lblNbPart.setText(Integer.toString(e.getPatients().size()));
+                        lblDebut.setText(e.getDebut().toString());
+                        lblFin.setText(e.getFin().toString());
+                        lblPro.setText(e.trouverProf());
+                    }
+                }
+        }
+        catch (SQLException e){
+            
+        }
     }
 }
