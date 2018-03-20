@@ -74,6 +74,11 @@ public class Etude {
     }
     
     //Setteur
+    
+    public void setId(int id){
+        this.id = id;
+    }
+    
     public void setTitre(String titre){
         this.titre = titre;
     }

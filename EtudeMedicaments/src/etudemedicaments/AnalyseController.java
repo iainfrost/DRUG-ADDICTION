@@ -7,6 +7,8 @@ package etudemedicaments;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,6 +17,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 /**
@@ -24,12 +28,39 @@ import javafx.stage.Stage;
  */
 public class AnalyseController implements Initializable {
 
+    
+    //combo box
+    @FXML
+    private ComboBox etudeCB;
+    
+    //label
+    @FXML
+    private Label lblNbPart;    
+    @FXML
+    private Label lblDebut;    
+    @FXML
+    private Label lblFin;    
+    @FXML
+    private Label lblPro;    
+    
+    
+    ArrayList<Etude> etudes= new ArrayList<Etude>();
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        
+        try{
+            etudes = ListerEtude.lister();
+            
+            for(Etude e: etudes){
+                etudeCB.getItems().add(e.getTitre());
+            }
+        }
+        catch (SQLException e){
+                
+                }
     }    
     @FXML
     public void handleRetour(ActionEvent event) throws IOException {
