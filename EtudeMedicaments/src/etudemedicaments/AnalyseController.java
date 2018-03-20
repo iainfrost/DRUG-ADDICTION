@@ -37,20 +37,14 @@ public class AnalyseController implements Initializable {
          
         try{
             
-                  
-            System.out.print("1 ");
             Parent root = FXMLLoader.load(getClass().getResource("menuP.fxml"));
-            System.out.print("2 ");
+            
             Stage stage = new Stage();
-            System.out.print("3 ");
             stage.setTitle("Addiction à la drogue - Menu Principal");
-            System.out.print("4 ");
             stage.setScene(new Scene(root));
-            System.out.print("5 ");
             stage.setResizable(false);
-            System.out.print("6 ");
             stage.show();
-            // Hide this current window (if this is what you want)
+            
             ((Node)(event.getSource())).getScene().getWindow().hide();
         
         }
