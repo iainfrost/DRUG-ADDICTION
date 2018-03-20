@@ -11,7 +11,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 import javafx.scene.control.Alert;
 
 /**
@@ -32,9 +34,13 @@ public class Etude {
     //Méthodes
     //Constructeurs
     public Etude() {
-        id=0;
-        titre="";
-        description="";
+        id = 0;
+        titre = "";
+        description = "";
+        debut = new Date();
+        fin = new Date();
+        type_etude="";
+        patients = new ArrayList<>();
     }
     
     //Gettteurs
@@ -103,7 +109,7 @@ public class Etude {
                     "SELECT e.titre_etude, e.description_etude, e.date_debut, e.date_fin, te.nom_type "
                             + "FROM etude AS e INNER JOIN type_etude AS te "
                             + "ON e.id_type_etude = te.id_type_etu "
-                            + "WHERE e.etude_id = ?"
+                            + "WHERE e.id_etude = ?"
             );
             stat.setInt(1, id);
             ResultSet result = stat.executeQuery();
@@ -114,7 +120,7 @@ public class Etude {
                 this.description = result.getString(2);
                 this.debut = result.getDate(3);
                 this.fin = result.getDate(4);
-                this.type_etude = result.getString(5);
+                //this.type_etude = result.getString(5);
                 chargerPatient();
             }
             else
@@ -144,7 +150,7 @@ public class Etude {
                 "SELECT lp.id_patient "
                     + "FROM etude AS e INNER JOIN ta_liste_patient AS lp "
                     + "ON e.id_etude = lp.id_etude "
-                    + "WHERE e.etude_id = ?"
+                    + "WHERE e.id_etude = ?"
                 );
             stat.setInt(1, this.id);
             ResultSet result = stat.executeQuery();
@@ -164,22 +170,27 @@ public class Etude {
     
     public int[] genererStats()
     {
-        //On déclare la variable dt (Sert à des calculs)
-        Date dt = debut;
-        
         //Ramasse le nombre de jours à vérifier
-        int duree = this.fin.compareTo(debut);
+        long dureeInMillies = Math.abs(fin.getTime() - debut.getTime());
+        int duree = (int) TimeUnit.DAYS.convert(dureeInMillies, TimeUnit.MILLISECONDS);
         
         //On crée la tableau d'int
-        int stats[] = new int[duree];
+        int stats[] = new int[duree + 1];
         
         for (int i = 0; i <= duree; i++)
         {
+            System.out.println(i);
             //Nombre de prises pour la journée
             int prise = 0;
             
             //On ramasse la date a vérifier
-            LocalDateTime.from(dt.toInstant()).plusDays(i);
+            Date dt = debut;
+            Calendar c = Calendar.getInstance(); 
+            c.setTime(dt); 
+            c.add(Calendar.DATE, i);
+            dt = c.getTime();
+            
+            System.out.println(dt);
             
             //Pour chaque Patient de l'étude...
             for (Patient patient : this.patients)

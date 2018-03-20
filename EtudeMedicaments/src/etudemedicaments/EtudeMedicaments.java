@@ -45,11 +45,10 @@ public class EtudeMedicaments extends Application {
         e.ChargerEtude(1);
         System.out.println(e.getTitre());
         int[] genererStats = e.genererStats();
-        System.out.println(genererStats[1]);
+        System.out.println(genererStats[2]);
         
         //p.enregistrerPatient();
         launch(args);
-    }
-    
+    } 
 }
 
