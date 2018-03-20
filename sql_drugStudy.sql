@@ -11,11 +11,11 @@
 *****************************************************************************
 */
 
-CREATE DATABASE medicamentEtudeDB;
+CREATE DATABASE medicamentEtudeDB IF NOT EXISTS;
 
 USE medicamentEtudeDB;
 
-CREATE TABLE patient (
+CREATE TABLE patient IF NOT EXISTS (
 	id_patient INT NOT NULL UNIQUE AUTO_INCREMENT,
 	nom_patient VARCHAR(32),
 	prenom_patient VARCHAR(32),
@@ -30,7 +30,7 @@ CREATE TABLE patient (
 	PRIMARY KEY(id_patient)
 );
 
-CREATE TABLE professionnel(
+CREATE TABLE professionnel IF NOT EXISTS(
 	no_professionnel INT NOT NULL UNIQUE AUTO_INCREMENT,
 	nom_professionnel VARCHAR(32),
 	prenom_professionnel VARCHAR(32),
@@ -45,7 +45,7 @@ CREATE TABLE professionnel(
 	PRIMARY KEY(no_professionnel)
 );
 
-CREATE TABLE type_etude(
+CREATE TABLE type_etude IF NOT EXISTS(
 	id_type_etu INT NOT NULL UNIQUE AUTO_INCREMENT,
 	nom_type VARCHAR(32),
 	description_type TEXT,
@@ -53,7 +53,7 @@ CREATE TABLE type_etude(
 	PRIMARY KEY(id_type_etu)
 );
 
-CREATE TABLE etude(
+CREATE TABLE etude IF NOT EXISTS(
 	id_etude INT NOT NULL UNIQUE AUTO_INCREMENT,
 	titre_etude VARCHAR(32),
 	description_etude TEXT,
@@ -64,7 +64,7 @@ CREATE TABLE etude(
 	FOREIGN KEY(id_type_etude)REFERENCES type_etude(id_type_etu)ON DELETE CASCADE
 );
 
-CREATE TABLE medicament(
+CREATE TABLE medicament IF NOT EXISTS(
 	id_medicament INT NOT NULL UNIQUE AUTO_INCREMENT,
 	nom_medicament VARCHAR(32),
 	description_medicament TEXT,
@@ -72,7 +72,7 @@ CREATE TABLE medicament(
 	PRIMARY KEY(id_medicament)
 );
 
-CREATE TABLE prescription(
+CREATE TABLE prescription IF NOT EXISTS(
 	no_prescription INT NOT NULL UNIQUE AUTO_INCREMENT,
 	posologie TEXT,
 	commentaire TEXT,
@@ -83,7 +83,7 @@ CREATE TABLE prescription(
 	FOREIGN KEY(id_etude) REFERENCES etude(id_etude)ON DELETE CASCADE
 );
 
-CREATE TABLE prise_medicament(
+CREATE TABLE prise_medicament IF NOT EXISTS(
 	id_prise_medicament INT NOT NULL UNIQUE AUTO_INCREMENT,
 	date_prise_medicament DATE,
 	id_patient INT,
@@ -93,7 +93,7 @@ CREATE TABLE prise_medicament(
 	FOREIGN KEY(id_prescription)REFERENCES prescription(no_prescription)ON DELETE CASCADE
 );
 
-CREATE TABLE TA_liste_patient(
+CREATE TABLE TA_liste_patient IF NOT EXISTS(
 	id_liste_patient INT NOT NULL UNIQUE AUTO_INCREMENT,
 	id_etude INT,
 	id_patient INT,
@@ -102,7 +102,7 @@ CREATE TABLE TA_liste_patient(
 	FOREIGN KEY(id_patient) REFERENCES patient(id_patient)ON DELETE CASCADE
 );
 
-CREATE TABLE TA_etude_professionel(
+CREATE TABLE TA_etude_professionel IF NOT EXISTS(
 	id_ta_etu_prof INT NOT NULL UNIQUE AUTO_INCREMENT,
 	id_etude INT,
 	id_prof INT,
