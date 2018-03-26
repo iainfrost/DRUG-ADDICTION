@@ -31,6 +31,15 @@ import javafx.stage.Stage;
  */
 public class AnalyseController implements Initializable {
 
+    /**
+     * objets du formulaire et variables
+     * @param etudeCB, c'est la liste des études
+     * @param lblNbPart, le nombre de patients
+     * @param lblDebut, la date de début de l'étude
+     * @param lblFin, la date de fin de l'étude
+     * @param lblPro, le nom du professionel
+     * @param etudes, la liste objet/etude 
+     */
     
     //combo box
     @FXML
@@ -49,12 +58,14 @@ public class AnalyseController implements Initializable {
     @FXML
     private Button btnRetour;
     
+
     @FXML
     private BarChart<String, Number> bcFrequence;
     
-     ArrayList<Etude> etudes= new ArrayList<Etude>();
+    //liste d'étude
+    ArrayList<Etude> etudes= new ArrayList<Etude>();
     /**
-     * Initializes the controller class.
+     * Initialise la classe de contrôle.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -70,7 +81,15 @@ public class AnalyseController implements Initializable {
         catch (SQLException e){
                 
                 }
-    }    
+    }
+    
+    /**
+     * Lorsque le bouton retour est appuyé, la fenêtre d'analyse se referme et 
+     * la fenêtre Menu Principal est allumé.
+     * 
+     * @param event, le bouton Retour est appuyé
+     * @throws IOException 
+     */
     @FXML
     public void handleRetour(ActionEvent event) throws IOException {
                 
@@ -90,8 +109,11 @@ public class AnalyseController implements Initializable {
         catch (Exception e){
             
         }
-    
     }
+
+     /**
+     * prépare les titres d'études en vue de les présenter en ComboBox
+     */
     @FXML
     public void handleCB(){
         String choix = etudeCB.getValue().toString();

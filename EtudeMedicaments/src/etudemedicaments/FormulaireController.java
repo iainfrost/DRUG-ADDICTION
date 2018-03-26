@@ -7,9 +7,14 @@ package etudemedicaments;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -19,10 +24,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -33,6 +37,17 @@ import javafx.stage.Stage;
  */
 public class FormulaireController implements Initializable {
 
+    /**
+     * objets du formulaire et variables 
+     * @param btnAjouter ajoute un patient a la base de données
+     * @param btnModifier modifie un patient dans la base de données
+     * @param btnSupprimer élimine un patient de la base de données
+     * @param btnMenuPrincipal permet de retourner à la fenètre du menu principal
+     * @param btnRechercher démarre une recherche par numéro d'identification
+     * @param cbEtude liste les études
+     * @param txtIdentifiant l'identifiant du patient
+     * 
+     */
     //boutons
     @FXML
     private Button btnAjouter;
@@ -47,7 +62,9 @@ public class FormulaireController implements Initializable {
     
     //combo box
     @FXML
-    private ComboBox cbEtude;
+    private ComboBox<Etude> cbEtude;
+    
+   
   
     //textfields 
     @FXML
@@ -71,12 +88,20 @@ public class FormulaireController implements Initializable {
     
     
     Patient p = new Patient();
-    ArrayList<Etude> etudes= new ArrayList<Etude>();
+    
+    ObservableList options = FXCollections.observableArrayList();
+
     
     //methodes
+
+    /**
+     *
+     * @param event
+     * @throws IOException
+     */
     @FXML
     public void retournerMenuPrincipal(ActionEvent event) throws IOException{
-        //System.out.println("retour menu principal");
+        
         Parent root = FXMLLoader.load(getClass().getResource("menuP.fxml"));
         Stage stage = new Stage();
         stage.setTitle("Addiction à la drogue - Menu principal");
@@ -87,12 +112,16 @@ public class FormulaireController implements Initializable {
         ((Node)(event.getSource())).getScene().getWindow().hide();
     }
     
+    /**
+     *
+     * @throws SQLException
+     */
     @FXML
     public void rechercherPatient() throws SQLException{
         //Patient p = new Patient();
         System.out.println("recherche d'un patient");
         //String id = txtIdentifiant.getText();
-        //System.out.println(id);
+        
         p.setId(Integer.valueOf(txtIdentifiant.getText()));
         System.out.println(p.getId());
         p.chargerPatient(p.getId());
@@ -107,11 +136,14 @@ public class FormulaireController implements Initializable {
         txtContactTelephone.setText(p.getTelUrgence());
     }
 
+    /**
+     *
+     * @throws SQLException
+     */
     @FXML
     public void ajouterPatient() throws SQLException{
         System.out.println("Ajout d'un patient");
-        //System.out.println("NAM :" + txtNAM.getText());
-        //System.out.println("Prenom :" + txtPrenom.getText() + " " + "Nom : " + txtNom.getText());       
+        
         p.setNoAssuMaladie(txtNAM.getText());
         p.setNom(txtNom.getText());
         p.setPrenom(txtPrenom.getText());
@@ -123,6 +155,10 @@ public class FormulaireController implements Initializable {
         p.ajoutPatient();
     }
     
+    /**
+     *
+     * @throws SQLException
+     */
     @FXML
     public void modifierPatient() throws SQLException{
         System.out.println("Modification d'un patient");
@@ -142,31 +178,55 @@ public class FormulaireController implements Initializable {
         p.modPatient();
     }
     
+    /**
+     *
+     * @throws SQLException
+     */
     @FXML
     public void supprimerPatient() throws SQLException{
         System.out.println("Suppression du patient #" + p.getId());
         p.effPatient();
     }
-    
-    
-    public static void chargerEtudes(){
+   
+    /**
+     *
+     * @throws SQLException
+     */
+    public void chargerEtudes() throws SQLException{
+        Connection conn= SimpleDataSource.getConnection();
         
+        try
+        {
+            String query="SELECT titre_etude FROM etude";
+            PreparedStatement stat = conn.prepareStatement (query);
+            
+            ResultSet result = stat.executeQuery();
+           while (result.next())
+            {
+               options.add(result.getString("titre_etude"));
+               
+            }
+           
+        }
+        finally
+        {
+            conn.close();
+        }
+       
     }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
     
         
-        etudes.add(new Etude());
+        try {
+            chargerEtudes();
+        } catch (SQLException ex) {
+            Logger.getLogger(FormulaireController.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
-        cbEtude.getItems().addAll(
-            "Option 1",
-            "Option 2",
-            "Option 3",
-            "Option 4",
-            "Option 5",
-            "Option 6"
-        );
+        cbEtude.setItems(options);
+        
         
     }    
     
