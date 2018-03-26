@@ -17,6 +17,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.BarChart;
+import javafx.scene.chart.XYChart;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
@@ -41,10 +44,15 @@ public class AnalyseController implements Initializable {
     @FXML
     private Label lblFin;    
     @FXML
-    private Label lblPro;    
+    private Label lblPro;  
+   
+    @FXML
+    private Button btnRetour;
     
+    @FXML
+    private BarChart<String, Number> bcFrequence;
     
-    ArrayList<Etude> etudes= new ArrayList<Etude>();
+     ArrayList<Etude> etudes= new ArrayList<Etude>();
     /**
      * Initializes the controller class.
      */
@@ -55,6 +63,7 @@ public class AnalyseController implements Initializable {
             etudes = ListerEtude.lister();
             
             for(Etude e: etudes){
+                System.out.println(e.getTitre());
                 etudeCB.getItems().add(e.getTitre());
             }
         }
@@ -83,23 +92,42 @@ public class AnalyseController implements Initializable {
         }
     
     }
+    @FXML
     public void handleCB(){
         String choix = etudeCB.getValue().toString();
         System.out.println(choix);
+        bcFrequence.getData().clear();
+        int[] stat = null;
         
         try{
+            
             for(Etude e: etudes){
-                    if(e.getTitre().equals(choix)){
-                        
-                        lblNbPart.setText(Integer.toString(e.getPatients().size()));
-                        lblDebut.setText(e.getDebut().toString());
-                        lblFin.setText(e.getFin().toString());
-                        lblPro.setText(e.trouverProf());
-                    }
+                if(e.getTitre().equals(choix)){
+
+                    lblNbPart.setText(Integer.toString(e.getPatients().size()));
+                    lblDebut.setText(e.getDebut().toString());
+                    lblFin.setText(e.getFin().toString());
+                    lblPro.setText(e.trouverProf());
+                   
+                    stat = e.genererStats();
                 }
+            }
         }
         catch (SQLException e){
+           
+        }
+        
+        
+        XYChart.Series<String, Number> serie = new XYChart.Series();
+        serie.setName("Prises");
+        for(int i =0; i < stat.length ;i++){
+           
+            serie.getData().add(new XYChart.Data("Jour " +(i+1), stat[i]));
+            System.out.println(i);
             
         }
+        
+        bcFrequence.getData().add(serie);
+        
     }
 }
