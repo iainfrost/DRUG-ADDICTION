@@ -317,15 +317,16 @@ public class Etude {
             PreparedStatement stat = conn.prepareStatement (
                 "SELECT p.nom_professionnel, p.prenom_professionnel, p.specialite FROM professionnel AS p INNER JOIN ta_etude_professionel AS t ON p.no_professionnel = t.id_prof WHERE t.id_etude = ?"
                 );
-                        
+           
             stat.setInt(1, this.id);
             ResultSet result = stat.executeQuery();
-              
-                if(!result.next()){
-                    System.out.println("Aucun professionnel n'est associer a cette étude");
-                }
+                
+            if(!result.next()){
+                System.out.println("Aucun professionnel n'est associé à cette étude");
+            }
+            
             prof =  result.getString(2) + " " +result.getString(1) + ", "  + result.getString(3);
-            System.out.println(prof);
+
         }
         finally
         {
