@@ -19,7 +19,7 @@ import javafx.stage.Stage;
  */
 public class EtudeMedicaments extends Application {
    
-     @Override
+    @Override
     public void start(Stage stage) throws Exception {
         
         Parent root = FXMLLoader.load(getClass().getResource("menuP.fxml"));
@@ -47,7 +47,7 @@ public class EtudeMedicaments extends Application {
         int[] genererStats = e.genererStats();
         System.out.println(genererStats[2]);
         
-        //p.enregistrerPatient();
+        
         launch(args);
     } 
 }
