@@ -199,9 +199,9 @@ public class MenuPController implements Initializable {
         }
         catch (Exception e){
             
-        }
-    
+        }    
     }
+     
     public void handleHelp(ActionEvent event) throws IOException {
         
         Alert alert = new Alert(AlertType.INFORMATION);
