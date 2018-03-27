@@ -6,6 +6,10 @@
 package etudemedicaments;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
@@ -385,8 +389,28 @@ public class PatientTest {
     public void testEffPatient() throws Exception {
         System.out.println("effPatient");
         Patient instance = new Patient();
-        int id = 11;
+        int id = getLastId();
         instance.chargerPatient(id);
         instance.effPatient();
     }    
+    
+        private int getLastId()
+            throws SQLException
+    {
+        int last_id = 0;
+        Connection conn = SimpleDataSource.getConnection();
+        try
+        {
+            PreparedStatement stat = conn.prepareStatement (
+                "SELECT max(id_patient) FROM patient;");
+            ResultSet result = stat.executeQuery();
+            if (result.next())
+                last_id = result.getInt(1);
+        }
+        finally
+        {
+            conn.close();
+        }  
+        return last_id;
+    }
 }
