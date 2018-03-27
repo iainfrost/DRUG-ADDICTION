@@ -17,10 +17,15 @@ import java.util.ArrayList;
  */
 public class ListerEtude {
     
+    /**
+     * Liste toutes les études dans la base de données
+     * @return Liste de toutes les études dans la base de données
+     * @throws SQLException
+     */
     public static ArrayList<Etude> lister()throws SQLException
     {
         ArrayList<Etude> liste = new ArrayList<>();
-         Connection conn = SimpleDataSource.getConnection();
+        Connection conn = SimpleDataSource.getConnection();
         try
         {
             PreparedStatement stat = conn.prepareStatement (

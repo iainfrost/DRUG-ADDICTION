@@ -23,7 +23,7 @@ import javafx.stage.Stage;
 
 /**
  * FXML Controller class
- *
+ * S'occupe des actions possibles sur le menu principal de l'application
  * @author mndus
  */
 public class MenuPController implements Initializable {
@@ -32,17 +32,27 @@ public class MenuPController implements Initializable {
     private Button btnAnalyse;
     /**
      * Initializes the controller class.
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
     
+    /**
+     * Gère le bouton quitter (Ferme le programme)
+     */
     @FXML
     public void handleQuitter(){
         System.exit(0);
     }
     
+    /**
+     * Gère le bouton Analyser une étude (Ouvre la fenêtre d'analyse)
+     * @param event
+     * @throws IOException
+     */
     @FXML
     public void handleAnalyse(ActionEvent event) throws IOException {
        
@@ -64,7 +74,13 @@ public class MenuPController implements Initializable {
         }
     
     }
-     public void handleAjouter(ActionEvent event) throws IOException {
+
+    /**
+     * Gère le bouton Ajouter un patient (Ouvre la fenêtre formulaire en mode d'ajout)
+     * @param event
+     * @throws IOException
+     */
+    public void handleAjouter(ActionEvent event) throws IOException {
        
          
         try{
@@ -112,7 +128,13 @@ public class MenuPController implements Initializable {
         }
     
     }
-      public void handleModifier(ActionEvent event) throws IOException {
+
+    /**
+     * Gère le bouton Modifier un patient (Ouvre la fenêtre formulaire en mode modification)
+     * @param event
+     * @throws IOException
+     */
+    public void handleModifier(ActionEvent event) throws IOException {
        
          
         try{
@@ -160,6 +182,12 @@ public class MenuPController implements Initializable {
         }
     
     }
+
+    /**
+     * Gère le bouton Supprimer un patient (Ouvre la fenêtre formulaire en mode supression)
+     * @param event
+     * @throws IOException
+     */
     public void handleSupprimer(ActionEvent event) throws IOException {
        
          
@@ -206,6 +234,12 @@ public class MenuPController implements Initializable {
         }
     
     }
+
+    /**
+     * Gère le bouton d'aide (Affiche un essage d'aide)
+     * @param event
+     * @throws IOException
+     */
     public void handleHelp(ActionEvent event) throws IOException {
         Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle(null);

@@ -14,7 +14,7 @@ import java.util.Date;
 import javafx.scene.control.Alert;
 
 /**
- *
+ * S'occupe de la gestion d'un patient
  * @author razan
  */
 public class Patient {
@@ -35,6 +35,10 @@ public class Patient {
     //Méthodes
     //Constructeurs
 
+    /**
+     *Constructeur par défaut
+     */
+
     public Patient() {
         this.priseMedicament = new ArrayList<>();
         this.id = 0;
@@ -52,100 +56,194 @@ public class Patient {
     
     //Gettteurs
 
+    /**
+     * Accesseur de l'id du patient
+     * @return l'id du patient
+     */
+
     public int getId() {
         return id;
     }
 
+    /**
+     * Accesseur du nom du patient
+     * @return le nom du patient
+     */
     public String getNom() {
         return nom;
     }
 
+    /**
+     * Accesseur du prenom du patient
+     * @return le prenom du patient
+     */
     public String getPrenom() {
         return prenom;
     }
 
+    /**
+     * Accesseur de l'adresse du patient
+     * @return l'adresse du patient
+     */
     public String getAdresse() {
         return adresse;
     }
 
+    /**
+     * Accesseur de la date de naissance du patient
+     * @return la date de naissance du patient
+     */
     public Date getDateNaissance() {
         return dateNaissance;
     }
 
+    /**
+     * Accesseur du téléphone à la maison du patient
+     * @return le téléphone à la maison du patient
+     */
     public String getTelMaison() {
         return telMaison;
     }
 
+    /**
+     * Accesseur du téléphone mobile du patient
+     * @return le téléphone mobile du patient
+     */
     public String getTelMobile() {
         return telMobile;
     }
 
+    /**
+     * Accesseur du numéros du téléphone d'urgence du patient
+     * @return le téléphone d'urgence du patient
+     */
     public String getTelUrgence() {
         return telUrgence;
     }
 
+    /**
+     * Accesseur du nom du contact d'urgence du patient
+     * @return le nom du contact d'urgence du patient
+     */
     public String getContactUrgence() {
         return contactUrgence;
     }
 
+    /**
+     * Accesseur de l'adresse courriel du patient
+     * @return l'adresse courriel du patient
+     */
     public String getEmail() {
         return email;
     }
 
+    /**
+     * Accesseur du numéros d'assurance maladie du patient
+     * @return le numéros d'assurance maladie du patient
+     */
     public String getNoAssuMaladie() {
         return noAssuMaladie;
     }
 
+    /**
+     * Accesseur de la liste de prise de médicament du patient
+     * @return la liste de prise de médicament du patient
+     */
     public ArrayList<Date> getPriseMedicament() {
         return priseMedicament;
     }
     
     //Setteur
+
+    /**
+     * Affectateur de l'id du patient
+     * @param id l'id du patient
+     */
     public void setId(int id) {
         this.id = id;
     }
     
+    /**
+     * Affectateur du nom du patient
+     * @param nom nom du patient
+     */
     public void setNom(String nom) {
         this.nom = nom;
     }
 
+    /**
+     * Affectateur du prenom du patient
+     * @param prenom prenom du patient
+     */
     public void setPrenom(String prenom) {
         this.prenom = prenom;
     }
 
+    /**
+     * Affectateur de l'adresse du patient
+     * @param adresse l'adresse du patient
+     */
     public void setAdresse(String adresse) {
         this.adresse = adresse;
     }
 
+    /**
+     * Affectateur de la date de naissance du patient
+     * @param dateNaissance la date de naissance du patient
+     */
     public void setDateNaissance(Date dateNaissance) {
         this.dateNaissance = dateNaissance;
     }
 
+    /**
+     * Affectateur du téléphone à la maison du patient
+     * @param telMaison téléphone à la maison du patient
+     */
     public void setTelMaison(String telMaison) {
         this.telMaison = telMaison;
     }
 
+    /**
+     * Affectateur du téléphone mobile du patient
+     * @param telMobile téléphone mobile du patient
+     */
     public void setTelMobile(String telMobile) {
         this.telMobile = telMobile;
     }
 
+    /**
+     * Affectateur du numéros du téléphone d'urgence du patient
+     * @param telUrgence numéros du téléphone d'urgence du patient
+     */
     public void setTelUrgence(String telUrgence) {
         this.telUrgence = telUrgence;
     }
 
+    /**
+     * Affectateur du nom du contact d'urgence du patient
+     * @param contactUrgence nom du contact d'urgence du patient
+     */
     public void setContactUrgence(String contactUrgence) {
         this.contactUrgence = contactUrgence;
     }
 
+    /**
+     * Affectateur de l'adresse courriel du patient
+     * @param email l'adresse courriel du patient
+     */
     public void setEmail(String email) {
         this.email = email;
     }
 
+    /**
+     * Affectateur du numéros d'assurance maladie du patient
+     * @param noAssuMaladie numéros d'assurance maladie du patient
+     */
     public void setNoAssuMaladie(String noAssuMaladie) {
         this.noAssuMaladie = noAssuMaladie;
     }
     
-    //Méthodes autres
+    //Méthodes autres   
     private void genererListePrises() 
         throws SQLException
     {
@@ -170,6 +268,11 @@ public class Patient {
         }
     }
     
+    /**
+     * Charge un patient selon l'id qui lui est passé
+     * @param id l'id du patient à charger
+     * @throws SQLException
+     */
     public void chargerPatient(int id) 
         throws SQLException
     {
@@ -214,6 +317,10 @@ public class Patient {
         }
     }
         
+    /**
+     * Enregistre les modifications faites à un patient dans la base de données
+     * @throws SQLException
+     */
     public void modPatient() throws SQLException{
         Connection conn = SimpleDataSource.getConnection();
         
@@ -251,7 +358,11 @@ public class Patient {
         }
     }
     
-     public void ajoutPatient() throws SQLException{
+    /**
+     * Ajoute un nouveau patient dans la base de données selon les informations entrées dans l'objet
+     * @throws SQLException
+     */
+    public void ajoutPatient() throws SQLException{
         Connection conn = SimpleDataSource.getConnection();
         //resetPatient();
         try
@@ -280,7 +391,11 @@ public class Patient {
         }
     }
      
-     public void effPatient() throws SQLException{
+    /**
+     * Supprime un patient de la base de donnée selon l'id enregistrer
+     * @throws SQLException
+     */
+    public void effPatient() throws SQLException{
         Connection conn = SimpleDataSource.getConnection();
         try
         {
@@ -295,6 +410,11 @@ public class Patient {
             conn.close();
         }
      }
+
+    /**
+     * S'occupe d'enregistrer ou modifier le patient dans la base de données selon si l'id est affecter ou non
+     * @throws SQLException
+     */
     public void enregistrerPatient() 
         throws SQLException
     {
