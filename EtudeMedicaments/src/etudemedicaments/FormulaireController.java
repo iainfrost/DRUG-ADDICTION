@@ -10,8 +10,6 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,9 +18,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -76,7 +72,7 @@ public class FormulaireController implements Initializable {
     //methodes
     @FXML
     public void retournerMenuPrincipal(ActionEvent event) throws IOException{
-        //System.out.println("retour menu principal");
+        
         Parent root = FXMLLoader.load(getClass().getResource("menuP.fxml"));
         Stage stage = new Stage();
         stage.setTitle("Addiction à la drogue - Menu principal");
@@ -89,14 +85,9 @@ public class FormulaireController implements Initializable {
     
     @FXML
     public void rechercherPatient() throws SQLException{
-        //Patient p = new Patient();
-        System.out.println("recherche d'un patient");
-        //String id = txtIdentifiant.getText();
-        //System.out.println(id);
+
         p.setId(Integer.valueOf(txtIdentifiant.getText()));
-        System.out.println(p.getId());
         p.chargerPatient(p.getId());
-        System.out.println(p.getId());
         txtNAM.setText(p.getNoAssuMaladie());
         txtNom.setText(p.getNom());
         txtPrenom.setText(p.getPrenom());
@@ -109,9 +100,7 @@ public class FormulaireController implements Initializable {
 
     @FXML
     public void ajouterPatient() throws SQLException{
-        System.out.println("Ajout d'un patient");
-        //System.out.println("NAM :" + txtNAM.getText());
-        //System.out.println("Prenom :" + txtPrenom.getText() + " " + "Nom : " + txtNom.getText());       
+       
         p.setNoAssuMaladie(txtNAM.getText());
         p.setNom(txtNom.getText());
         p.setPrenom(txtPrenom.getText());
@@ -125,12 +114,11 @@ public class FormulaireController implements Initializable {
     
     @FXML
     public void modifierPatient() throws SQLException{
-        System.out.println("Modification d'un patient");
         
         p.setId(Integer.valueOf(txtIdentifiant.getText()));
         p.chargerPatient(p.getId());
         
-         p.setNoAssuMaladie(txtNAM.getText());
+        p.setNoAssuMaladie(txtNAM.getText());
         p.setNom(txtNom.getText());
         p.setPrenom(txtPrenom.getText());
         p.setAdresse(txtAdresse.getText());
@@ -144,7 +132,6 @@ public class FormulaireController implements Initializable {
     
     @FXML
     public void supprimerPatient() throws SQLException{
-        System.out.println("Suppression du patient #" + p.getId());
         p.effPatient();
     }
     

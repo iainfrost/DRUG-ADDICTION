@@ -10,7 +10,6 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 /**
@@ -43,10 +42,7 @@ public class EtudeMedicaments extends Application {
         
         Etude e = new Etude();
         e.ChargerEtude(1);
-        System.out.println(e.getTitre());
-        int[] genererStats = e.genererStats();
-        System.out.println(genererStats[2]);
-        
+        int[] genererStats = e.genererStats();        
         
         launch(args);
     } 

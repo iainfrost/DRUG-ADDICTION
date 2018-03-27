@@ -30,7 +30,7 @@ public class ListerEtude {
             
             while (result.next())
             {
-                 Etude e = new Etude();
+                Etude e = new Etude();
                 e.setId(result.getInt(1));
                 e.setTitre(result.getString(2));
                 e.setDescription(result.getString(3));

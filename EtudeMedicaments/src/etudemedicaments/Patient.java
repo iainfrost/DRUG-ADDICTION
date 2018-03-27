@@ -234,7 +234,6 @@ public class Patient {
                     stat.setString(1, this.nom);
                     stat.setString(2, this.prenom);
                     stat.setString(3, this.adresse);
-                    //stat.setDate(4, (java.sql.Date) this.dateNaissance);
                     stat.setString(4, this.telMaison);
                     stat.setString(5, this.telMobile);
                     stat.setString(6, this.telUrgence);
@@ -253,7 +252,7 @@ public class Patient {
     
      public void ajoutPatient() throws SQLException{
         Connection conn = SimpleDataSource.getConnection();
-        //resetPatient();
+        
         try
         {
             PreparedStatement stat = conn.prepareStatement (
@@ -263,7 +262,6 @@ public class Patient {
                     stat.setString(1, this.nom);
                     stat.setString(2, this.prenom);
                     stat.setString(3, this.adresse);
-                    //stat.setDate(4, (java.sql.Date) this.dateNaissance);
                     stat.setString(4, this.telMaison);
                     stat.setString(5, this.telMobile);
                     stat.setString(6, this.telUrgence);
@@ -325,13 +323,12 @@ public class Patient {
             stat.setString(1, this.nom);
             stat.setString(2, this.prenom);
             stat.setString(3, this.adresse);
-            stat.setDate(4, (java.sql.Date) this.dateNaissance);
-            stat.setString(5, this.telMaison);
-            stat.setString(6, this.telMobile);
-            stat.setString(7, this.telUrgence);
-            stat.setString(8, this.contactUrgence);
-            stat.setString(9, this.email);
-            stat.setString(10, this.noAssuMaladie);
+            stat.setString(4, this.telMaison);
+            stat.setString(5, this.telMobile);
+            stat.setString(6, this.telUrgence);
+            stat.setString(7, this.contactUrgence);
+            stat.setString(8, this.email);
+            stat.setString(9, this.noAssuMaladie);
             
             if(exist)
                 stat.setInt(11, this.id);
