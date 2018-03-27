@@ -200,6 +200,7 @@ public class MenuPController implements Initializable {
         catch (Exception e){
             
         }
+    }
     
     public void handleHelp(ActionEvent event) throws IOException {
         
