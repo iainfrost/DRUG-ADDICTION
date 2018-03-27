@@ -46,7 +46,15 @@ public class FormulaireController implements Initializable {
      * @param btnRechercher démarre une recherche par numéro d'identification
      * @param cbEtude liste les études
      * @param txtIdentifiant l'identifiant du patient
-     * 
+     * @param txtNom le nom du patient
+     * @param txtPrenom le prénom du patient
+     * @param txtAdresse l'adresse du patient
+     * @param txtTelMaison le numéro de téléphone du patient
+     * @param txtTelMobile le numéro de téléphone mobile du patient
+     * @param txtContact le nom du contact en cas d'urgence
+     * @param txtContactTelephone le téléphone du contact en cas d'urgence
+     * @param p un patient 
+     * @param options la liste des études 
      */
     //boutons
     @FXML
@@ -95,8 +103,9 @@ public class FormulaireController implements Initializable {
     //methodes
 
     /**
-     *
-     * @param event
+     * permet de retourner au menu principal en appuyant sur le bouton menu principal,
+     * peut importe de la configuration du formulaire
+     * @param event l'événement lorsque le bouton Menu Principal est appuyé
      * @throws IOException
      */
     @FXML
@@ -108,20 +117,19 @@ public class FormulaireController implements Initializable {
         stage.setScene(new Scene(root));
         stage.setResizable(false);
         stage.show();
-        // Hide this current window (if this is what you want)
+        // cacher la fenêtre
         ((Node)(event.getSource())).getScene().getWindow().hide();
     }
     
     /**
-     *
-     * @throws SQLException
+     * Effectue la recherche d'un patient a partir de son numéro d'identification et
+     * affiche le patient trouvé dans les champs du formulaire.
+     * @throws SQLException 
      */
     @FXML
     public void rechercherPatient() throws SQLException{
-        //Patient p = new Patient();
-        System.out.println("recherche d'un patient");
-        //String id = txtIdentifiant.getText();
         
+        System.out.println("recherche d'un patient");
         p.setId(Integer.valueOf(txtIdentifiant.getText()));
         System.out.println(p.getId());
         p.chargerPatient(p.getId());
@@ -137,13 +145,13 @@ public class FormulaireController implements Initializable {
     }
 
     /**
-     *
+     * ajoute un patient a la base de donnée a partir des champs du 
+     * formulaire
      * @throws SQLException
      */
     @FXML
     public void ajouterPatient() throws SQLException{
         System.out.println("Ajout d'un patient");
-        
         p.setNoAssuMaladie(txtNAM.getText());
         p.setNom(txtNom.getText());
         p.setPrenom(txtPrenom.getText());
@@ -156,17 +164,16 @@ public class FormulaireController implements Initializable {
     }
     
     /**
-     *
+     * modifie un patient dans la base de donnée a partir des champs du 
+     * formulaire
      * @throws SQLException
      */
     @FXML
     public void modifierPatient() throws SQLException{
         System.out.println("Modification d'un patient");
-        
         p.setId(Integer.valueOf(txtIdentifiant.getText()));
         p.chargerPatient(p.getId());
-        
-         p.setNoAssuMaladie(txtNAM.getText());
+        p.setNoAssuMaladie(txtNAM.getText());
         p.setNom(txtNom.getText());
         p.setPrenom(txtPrenom.getText());
         p.setAdresse(txtAdresse.getText());
@@ -174,22 +181,20 @@ public class FormulaireController implements Initializable {
         p.setTelMobile(txtTelMobile.getText());
         p.setContactUrgence(txtContact.getText());
         p.setTelUrgence(txtContactTelephone.getText());
-        
         p.modPatient();
     }
     
     /**
-     *
+     * supprime un patient de la base de données 
      * @throws SQLException
      */
     @FXML
     public void supprimerPatient() throws SQLException{
-        System.out.println("Suppression du patient #" + p.getId());
         p.effPatient();
     }
    
     /**
-     *
+     * charge les titres des études dans le tableau options
      * @throws SQLException
      */
     public void chargerEtudes() throws SQLException{
@@ -197,10 +202,10 @@ public class FormulaireController implements Initializable {
         
         try
         {
-            String query="SELECT titre_etude FROM etude";
-            PreparedStatement stat = conn.prepareStatement (query);
+           String query="SELECT titre_etude FROM etude";
+           PreparedStatement stat = conn.prepareStatement (query);
             
-            ResultSet result = stat.executeQuery();
+           ResultSet result = stat.executeQuery();
            while (result.next())
             {
                options.add(result.getString("titre_etude"));
@@ -215,6 +220,12 @@ public class FormulaireController implements Initializable {
        
     }
     
+    /**
+     * initialise la fenêtre formulaire pour que le comboBox cbEtude contienne les 
+     * titres de toutes les études.
+     * @param url
+     * @param rb 
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
     

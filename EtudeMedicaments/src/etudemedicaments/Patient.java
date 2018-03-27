@@ -234,7 +234,6 @@ public class Patient {
                     stat.setString(1, this.nom);
                     stat.setString(2, this.prenom);
                     stat.setString(3, this.adresse);
-                    //stat.setDate(4, (java.sql.Date) this.dateNaissance);
                     stat.setString(4, this.telMaison);
                     stat.setString(5, this.telMobile);
                     stat.setString(6, this.telUrgence);
@@ -263,7 +262,6 @@ public class Patient {
                     stat.setString(1, this.nom);
                     stat.setString(2, this.prenom);
                     stat.setString(3, this.adresse);
-                    //stat.setDate(4, (java.sql.Date) this.dateNaissance);
                     stat.setString(4, this.telMaison);
                     stat.setString(5, this.telMobile);
                     stat.setString(6, this.telUrgence);

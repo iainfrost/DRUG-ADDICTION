@@ -14,8 +14,11 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 /**
- *
- * @author iain
+ * Cette application servira a gérer des patients participant à des études de 
+ * médicaments et analyser les résultats.
+ * @author Iain Frost
+ * @author Marie Noëlle Dussault
+ * @author Loup Olivier Gaven-Forest 
  */
 public class EtudeMedicaments extends Application {
    
