@@ -201,12 +201,10 @@ public class Etude {
                 this.description = result.getString(2);
                 this.debut = result.getDate(3);
                 this.fin = result.getDate(4);
-                //this.type_etude = result.getString(5);
                 chargerPatient();
             }
             else
             {
-                System.out.println("Aucune etude trouvé");
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle(null);
                 alert.setHeaderText(null);
@@ -269,7 +267,6 @@ public class Etude {
         
         for (int i = 0; i <= duree; i++)
         {
-            System.out.println(i);
             //Nombre de prises pour la journée
             int prise = 0;
             
@@ -309,7 +306,6 @@ public class Etude {
     {
         String prof = "";
         
-        
          Connection conn= SimpleDataSource.getConnection();
         try
         {
@@ -332,7 +328,6 @@ public class Etude {
         {
             conn.close();
         }
-        
         
         return prof;
     }

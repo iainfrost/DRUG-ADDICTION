@@ -74,7 +74,6 @@ public class AnalyseController implements Initializable {
             etudes = ListerEtude.lister();
             
             for(Etude e: etudes){
-                System.out.println(e.getTitre());
                 etudeCB.getItems().add(e.getTitre());
             }
         }
@@ -117,7 +116,7 @@ public class AnalyseController implements Initializable {
     @FXML
     public void handleCB(){
         String choix = etudeCB.getValue().toString();
-        System.out.println(choix);
+        
         bcFrequence.getData().clear();
         int[] stat = null;
         
@@ -144,9 +143,7 @@ public class AnalyseController implements Initializable {
         serie.setName("Prises");
         for(int i =0; i < stat.length ;i++){
            
-            serie.getData().add(new XYChart.Data("Jour " +(i+1), stat[i]));
-            System.out.println(i);
-            
+            serie.getData().add(new XYChart.Data("Jour " +(i+1), stat[i]));            
         }
         
         bcFrequence.getData().add(serie);

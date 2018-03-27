@@ -13,10 +13,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -118,14 +114,8 @@ public class FormulaireController implements Initializable {
      */
     @FXML
     public void rechercherPatient() throws SQLException{
-        //Patient p = new Patient();
-        System.out.println("recherche d'un patient");
-        //String id = txtIdentifiant.getText();
-        
         p.setId(Integer.valueOf(txtIdentifiant.getText()));
-        System.out.println(p.getId());
         p.chargerPatient(p.getId());
-        System.out.println(p.getId());
         txtNAM.setText(p.getNoAssuMaladie());
         txtNom.setText(p.getNom());
         txtPrenom.setText(p.getPrenom());
@@ -142,8 +132,7 @@ public class FormulaireController implements Initializable {
      */
     @FXML
     public void ajouterPatient() throws SQLException{
-        System.out.println("Ajout d'un patient");
-        
+
         p.setNoAssuMaladie(txtNAM.getText());
         p.setNom(txtNom.getText());
         p.setPrenom(txtPrenom.getText());
@@ -161,12 +150,11 @@ public class FormulaireController implements Initializable {
      */
     @FXML
     public void modifierPatient() throws SQLException{
-        System.out.println("Modification d'un patient");
         
         p.setId(Integer.valueOf(txtIdentifiant.getText()));
         p.chargerPatient(p.getId());
         
-         p.setNoAssuMaladie(txtNAM.getText());
+        p.setNoAssuMaladie(txtNAM.getText());
         p.setNom(txtNom.getText());
         p.setPrenom(txtPrenom.getText());
         p.setAdresse(txtAdresse.getText());
@@ -184,7 +172,6 @@ public class FormulaireController implements Initializable {
      */
     @FXML
     public void supprimerPatient() throws SQLException{
-        System.out.println("Suppression du patient #" + p.getId());
         p.effPatient();
     }
    

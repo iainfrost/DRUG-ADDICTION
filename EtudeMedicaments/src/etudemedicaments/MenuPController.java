@@ -18,7 +18,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 /**
@@ -35,7 +34,7 @@ public class MenuPController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        
     }    
     
     @FXML
@@ -207,6 +206,7 @@ public class MenuPController implements Initializable {
     
     }
     public void handleHelp(ActionEvent event) throws IOException {
+        
         Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle(null);
         alert.setHeaderText("Aide à l'utilisateur");
