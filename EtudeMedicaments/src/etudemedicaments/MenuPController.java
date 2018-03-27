@@ -98,6 +98,7 @@ public class MenuPController implements Initializable {
             home_page_scene.lookup("#txtContact").setDisable(false);
             home_page_scene.lookup("#txtContactTelephone").setDisable(false);
             home_page_scene.lookup("#cbEtude").setDisable(false);
+            home_page_scene.lookup("#cbEtude").setVisible(false);
             
             app_stage.setScene(home_page_scene);
             app_stage.show();  
@@ -144,6 +145,7 @@ public class MenuPController implements Initializable {
             home_page_scene.lookup("#txtContact").setDisable(false);
             home_page_scene.lookup("#txtContactTelephone").setDisable(false);
             home_page_scene.lookup("#cbEtude").setDisable(false);
+            home_page_scene.lookup("#cbEtude").setVisible(false);
             
             app_stage.setScene(home_page_scene);
                         
@@ -190,6 +192,7 @@ public class MenuPController implements Initializable {
             home_page_scene.lookup("#txtContact").setDisable(true);
             home_page_scene.lookup("#txtContactTelephone").setDisable(true);
             home_page_scene.lookup("#cbEtude").setDisable(true);
+            home_page_scene.lookup("#cbEtude").setVisible(false);
             
             app_stage.setScene(home_page_scene);
             app_stage.show();  
@@ -208,7 +211,6 @@ public class MenuPController implements Initializable {
         alert.setTitle(null);
         alert.setHeaderText("Aide à l'utilisateur");
         alert.setContentText("Arrange-toi tout seul, t'es supposé de savoir comment !!!");
-
         alert.showAndWait();
         
        

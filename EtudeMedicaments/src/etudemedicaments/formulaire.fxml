@@ -38,8 +38,8 @@
                   <Label layoutX="339.0" layoutY="232.0" text="Téléphone : " />
                   <TextField fx:id="txtContactTelephone" layoutX="404.0" layoutY="228.0" />
                   <Separator layoutX="65.0" layoutY="276.0" prefHeight="0.0" prefWidth="482.0" />
-                  <Label layoutX="69.0" layoutY="291.0" text="Étude : " />
-            <ComboBox fx:id="cbEtude" layoutX="116.0" layoutY="287.0" prefWidth="150.0" visibleRowCount="3" />
+                  <Label layoutX="69.0" layoutY="291.0" text="Étude : " visible="false" />
+            <ComboBox fx:id="cbEtude" layoutX="116.0" layoutY="296.0" prefWidth="150.0" visible="false" visibleRowCount="3" />
                   <Separator layoutX="65.0" layoutY="326.0" prefHeight="0.0" prefWidth="481.0" />
                   <Button fx:id="btnMenuPrincipal" layoutX="265.0" layoutY="348.0" mnemonicParsing="false" onAction="#retournerMenuPrincipal" text="Menu Principal" />
                   <Button fx:id="btnAjouter" layoutX="496.0" layoutY="348.0" mnemonicParsing="false" onAction="#ajouterPatient" text="Ajouter" />
