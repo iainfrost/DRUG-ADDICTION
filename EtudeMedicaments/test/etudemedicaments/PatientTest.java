@@ -196,6 +196,8 @@ public class PatientTest {
         int id = 3;
         Patient instance = new Patient();
         instance.setId(id);
+        int result = instance.getId();
+        assertEquals(id, result);
     }
 
     /**
@@ -207,6 +209,8 @@ public class PatientTest {
         String nom = "Marmotte";
         Patient instance = new Patient();
         instance.setNom(nom);
+        String result = instance.getNom();
+        assertEquals(nom, result);
     }
 
     /**
@@ -218,6 +222,8 @@ public class PatientTest {
         String prenom = "Raton";
         Patient instance = new Patient();
         instance.setPrenom(prenom);
+        String result = instance.getPrenom();
+        assertEquals(prenom, result);
     }
 
     /**
@@ -229,6 +235,8 @@ public class PatientTest {
         String adresse = "12 rue des animaux morts, Sherbrooke, QC";
         Patient instance = new Patient();
         instance.setAdresse(adresse);
+        String result = instance.getAdresse();
+        assertEquals(adresse, result);
     }
 
     /**
@@ -237,9 +245,11 @@ public class PatientTest {
     @Test
     public void testSetDateNaissance() {
         System.out.println("setDateNaissance");
-        Date dateNaissance = null;
+        Date dateNaissance = new Date();
         Patient instance = new Patient();
         instance.setDateNaissance(dateNaissance);
+        Date result = instance.getDateNaissance();
+        assertEquals(dateNaissance, result);
     }
 
     /**
@@ -251,6 +261,8 @@ public class PatientTest {
         String telMaison = "123-456-7890";
         Patient instance = new Patient();
         instance.setTelMaison(telMaison);
+        String result = instance.getTelMaison();
+        assertEquals(telMaison, result);
     }
 
     /**
@@ -262,6 +274,8 @@ public class PatientTest {
         String telMobile = "123-456-7890";
         Patient instance = new Patient();
         instance.setTelMobile(telMobile);
+        String result = instance.getTelMobile();
+        assertEquals(telMobile, result);
     }
 
     /**
@@ -273,6 +287,8 @@ public class PatientTest {
         String telUrgence = "123-456-7890";
         Patient instance = new Patient();
         instance.setTelUrgence(telUrgence);
+        String result = instance.getTelUrgence();
+        assertEquals(telUrgence, result);
     }
 
     /**
@@ -284,6 +300,8 @@ public class PatientTest {
         String contactUrgence = "Lemming";
         Patient instance = new Patient();
         instance.setContactUrgence(contactUrgence);
+        String result = instance.getContactUrgence();
+        assertEquals(contactUrgence, result);
     }
 
     /**
@@ -295,6 +313,8 @@ public class PatientTest {
         String email = "poil@gmail.com";
         Patient instance = new Patient();
         instance.setEmail(email);
+        String result = instance.getEmail();
+        assertEquals(email, result);
     }
 
     /**
@@ -306,6 +326,8 @@ public class PatientTest {
         String noAssuMaladie = "MARR12118700";
         Patient instance = new Patient();
         instance.setNoAssuMaladie(noAssuMaladie);
+        String result = instance.getNoAssuMaladie();
+        assertEquals(noAssuMaladie, result);
     }
 
     /**

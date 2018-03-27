@@ -132,6 +132,8 @@ public class EtudeTest {
         int id = 1;
         Etude instance = new Etude();
         instance.setId(id);
+        int result = instance.getId();
+        assertEquals(id, result);
     }
 
     /**
@@ -140,9 +142,11 @@ public class EtudeTest {
     @Test
     public void testSetTitre() {
         System.out.println("setTitre");
-        String titre = "";
+        String titre = "Raton";
         Etude instance = new Etude();
         instance.setTitre(titre);
+        String result = instance.getTitre();
+        assertEquals(titre, result);
     }
 
     /**
@@ -151,9 +155,11 @@ public class EtudeTest {
     @Test
     public void testSetDescription() {
         System.out.println("setDescription");
-        String description = "";
+        String description = "Une étude";
         Etude instance = new Etude();
         instance.setDescription(description);
+        String result = instance.getDescription();
+        assertEquals(description, result);
     }
 
     /**
@@ -162,9 +168,11 @@ public class EtudeTest {
     @Test
     public void testSetDebut() {
         System.out.println("setDebut");
-        Date debut = null;
+        Date debut = new Date();
         Etude instance = new Etude();
         instance.setDebut(debut);
+        Date result = instance.getDebut();
+        assertEquals(debut, result);
     }
 
     /**
@@ -173,9 +181,11 @@ public class EtudeTest {
     @Test
     public void testSetFin() {
         System.out.println("setFin");
-        Date fin = null;
+        Date fin = new Date();
         Etude instance = new Etude();
         instance.setFin(fin);
+        Date result = instance.getFin();
+        assertEquals(fin, result);
     }
 
     /**
@@ -184,9 +194,11 @@ public class EtudeTest {
     @Test
     public void testSetType_etude() {
         System.out.println("setType_etude");
-        String type_etude = "";
+        String type_etude = "Poire";
         Etude instance = new Etude();
         instance.setType_etude(type_etude);
+        String result = instance.getType_etude();
+        assertEquals(type_etude, result);
     }
 
     /**
